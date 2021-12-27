@@ -1,0 +1,455 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://scripts/player/player_main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player/console.gd" type="Script" id=2]
+[ext_resource path="res://assets/gui/player/health.png" type="Texture" id=3]
+[ext_resource path="res://scripts/player/movement.gd" type="Script" id=4]
+[ext_resource path="res://scripts/player/fly.gd" type="Script" id=5]
+[ext_resource path="res://assets/sound/player/jump/jump.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sound/player/walking/walking.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sound/atmosphere/atmosphere.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/sound/player/typewriter/typewriter_sound.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/stamina.gd" type="Script" id=11]
+[ext_resource path="res://scenes/font.tres" type="DynamicFont" id=12]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.321569, 0.027451, 0.027451, 1 )
+sky_horizon_color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+sky_curve = 1.25359
+sky_energy = 1.75
+sun_color = Color( 0.878431, 0.854902, 0.227451, 1 )
+sun_latitude = 180.0
+sun_longitude = 29.65
+sun_angle_min = 5.24
+sun_angle_max = 12.3
+sun_curve = 0.3249
+sun_energy = 3.26
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_energy = 0.0
+ambient_light_sky_contribution = 0.58
+fog_sun_amount = 0.04
+fog_depth_enabled = false
+fog_depth_begin = 0.0
+fog_depth_end = 656.9
+fog_depth_curve = 3.24901
+ss_reflections_max_steps = 63
+ss_reflections_fade_in = 6.11789
+ss_reflections_fade_out = 0.707107
+ss_reflections_depth_tolerance = 52.2
+ssao_enabled = true
+ssao_radius2 = 2.8
+ssao_intensity2 = 0.0
+ssao_light_affect = 0.57
+ssao_edge_sharpness = 32.0
+dof_blur_far_enabled = true
+dof_blur_far_distance = 2.04
+dof_blur_far_transition = 1473.32
+dof_blur_far_amount = 0.33
+dof_blur_far_quality = 2
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.2
+dof_blur_near_transition = 0.17
+dof_blur_near_amount = 0.34
+dof_blur_near_quality = 2
+adjustment_brightness = 0.03
+
+[sub_resource type="Animation" id=3]
+resource_name = "sun"
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:background_sky:sun_latitude")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 180.0, -180.0 ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("stamina:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "runningLock"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("stamina:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "typewriter"
+length = 4.021
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+size = 9
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=23]
+font_data = ExtResource( 9 )
+
+[sub_resource type="CapsuleMesh" id=20]
+
+[sub_resource type="SpatialMaterial" id=21]
+
+[sub_resource type="BoxShape" id=4]
+
+[node name="KinematicBody" type="KinematicBody"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0126817, 3.69038, -0.000906352 )
+script = ExtResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment"]
+autoplay = "sun"
+anims/sun = SubResource( 3 )
+
+[node name="GUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamina" type="Control" parent="GUI"]
+margin_left = 231.0
+margin_top = 186.0
+margin_right = 379.0
+margin_bottom = 225.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stamina" type="ProgressBar" parent="GUI/Stamina"]
+margin_left = 20.0
+margin_top = 13.0
+margin_right = 137.0
+margin_bottom = 27.0
+value = 50.0
+percent_visible = false
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunningLockAnim" type="AnimationPlayer" parent="GUI/Stamina"]
+anims/RESET = SubResource( 27 )
+anims/runningLock = SubResource( 28 )
+
+[node name="screen_text" type="Control" parent="GUI"]
+margin_top = 191.0
+margin_right = 172.0
+margin_bottom = 223.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/screen_text"]
+autoplay = "typewriter"
+anims/RESET = SubResource( 24 )
+anims/typewriter = SubResource( 25 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/screen_text"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 187.0
+margin_bottom = 26.0
+custom_fonts/normal_font = SubResource( 26 )
+visible_characters = 0
+percent_visible = 0.0
+text = "Why do you keep coming back... You.. know its not safe, right?"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="console" type="Control" parent="GUI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="GUI/console"]
+margin_right = 145.0
+margin_bottom = 68.0
+color = Color( 0, 0, 0, 0.788235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_fps" type="RichTextLabel" parent="GUI/console"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 86.0
+margin_bottom = 17.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "FPS: null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_movement" type="RichTextLabel" parent="GUI/console"]
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 11.0
+margin_right = 155.0
+margin_bottom = -12.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "Movement: null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_fov" type="RichTextLabel" parent="GUI/console"]
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 20.0
+margin_right = 160.0
+margin_bottom = -5.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "FOV: null"
+
+[node name="text_contact" type="RichTextLabel" parent="GUI/console"]
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 28.0
+margin_right = 260.0
+margin_bottom = 3.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "Has contact(RayCast): null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_onfloor" type="RichTextLabel" parent="GUI/console"]
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = 160.0
+margin_bottom = 12.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "Is on floor: null"
+
+[node name="text_position" type="RichTextLabel" parent="GUI/console"]
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 46.0
+margin_right = 160.0
+margin_bottom = 22.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "Position: null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_speed" type="RichTextLabel" parent="GUI/console"]
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 55.0
+margin_right = 160.0
+margin_bottom = 31.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "Speed: null"
+
+[node name="health" type="Control" parent="GUI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/health"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -26.0069
+margin_top = 549.256
+margin_right = 10.9931
+margin_bottom = 546.256
+
+[node name="Sprite" type="Sprite" parent="GUI/health/MarginContainer"]
+position = Vector2( 17.5284, 21.2645 )
+scale = Vector2( 0.418124, 0.418124 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="GUI/health/MarginContainer"]
+position = Vector2( 61.0508, 21.2645 )
+scale = Vector2( 0.418124, 0.418124 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="GUI/health/MarginContainer"]
+position = Vector2( 103.622, 21.2645 )
+scale = Vector2( 0.418124, 0.418124 )
+texture = ExtResource( 3 )
+
+[node name="pause" type="Control" parent="GUI"]
+visible = false
+margin_left = -16.0
+margin_top = -10.0
+margin_right = 270.0
+margin_bottom = 234.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GUI/pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4157.0
+margin_top = -2014.0
+margin_right = 2697.0
+margin_bottom = 1568.0
+color = Color( 0, 0, 0, 0.831373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/pause"]
+margin_left = 34.0
+margin_top = 19.0
+margin_right = 96.0
+margin_bottom = 51.0
+custom_fonts/normal_font = SubResource( 23 )
+text = "PAUSED"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCamera" type="Camera" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.088, 3.028, 0.120761 )
+
+[node name="type_writer" type="AudioStreamPlayer3D" parent="PlayerCamera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0038817, 0.0496056, -0.955405 )
+stream = ExtResource( 10 )
+unit_db = 16.0
+
+[node name="FovTween" type="Tween" parent="PlayerCamera"]
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.87907, 0 )
+enabled = true
+cast_to = Vector3( 0, -0.6, 0 )
+collide_with_areas = true
+
+[node name="PlayerMovement" type="Spatial" parent="."]
+
+[node name="Movement" type="Spatial" parent="PlayerMovement"]
+script = ExtResource( 4 )
+
+[node name="Fly" type="Spatial" parent="PlayerMovement"]
+script = ExtResource( 5 )
+
+[node name="PlayerMesh" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0, -2.59, 0, 0.75, 0, 0.0878795, 0.755081, 0 )
+visible = false
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
+
+[node name="HitBox" type="CollisionShape" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0, -2.59, 0, 0.75, 0, 0.0878795, 0.755081, 0 )
+shape = SubResource( 4 )
+
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="jump" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+stream = ExtResource( 6 )
+
+[node name="walking" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+stream = ExtResource( 7 )
+unit_db = -16.335
+pitch_scale = 0.67
+max_distance = 10.0
+
+[node name="atmosphere" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.264788, -1.19209e-06, -0.0169277 )
+stream = ExtResource( 8 )
+unit_db = -9.1
+max_db = -14.15
+autoplay = true
