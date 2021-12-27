@@ -87,4 +87,4 @@ shape = SubResource( 11 )
 [node name="barrel" parent="room" instance=ExtResource( 1 )]
 
 [node name="barrel2" parent="room" instance=ExtResource( 1 )]
-transform = Transform( 0.642746, 0, 0, 0, 0.642746, 0, 0, 0, 0.642746, -1.97836, -3.40432, 2.36502 )
+transform = Transform( 0.642746, 0, 0, 0, 0.642746, 0, 0, 0, 0.642746, -1.97836, -3.40432, 2.21709 )
