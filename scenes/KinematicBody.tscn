@@ -11,7 +11,6 @@
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/sound/player/typewriter/typewriter_sound.wav" type="AudioStream" id=10]
 [ext_resource path="res://scenes/stamina.gd" type="Script" id=11]
-[ext_resource path="res://scenes/font.tres" type="DynamicFont" id=12]
 [ext_resource path="res://scenes/main-controls.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=27]
@@ -102,6 +101,10 @@ tracks/1/keys = {
 
 [sub_resource type="DynamicFont" id=29]
 size = 15
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=45]
+size = 8
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=23]
@@ -203,7 +206,7 @@ margin_left = 4.0
 margin_top = 2.0
 margin_right = 86.0
 margin_bottom = 17.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "FPS: null"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -215,7 +218,7 @@ margin_left = 4.0
 margin_top = 11.0
 margin_right = 155.0
 margin_bottom = -12.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "Movement: null"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -227,7 +230,7 @@ margin_left = 4.0
 margin_top = 20.0
 margin_right = 160.0
 margin_bottom = -5.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "FOV: null"
 
 [node name="text_contact" type="RichTextLabel" parent="GUI/console"]
@@ -236,7 +239,7 @@ margin_left = 4.0
 margin_top = 28.0
 margin_right = 260.0
 margin_bottom = 3.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "Has contact(RayCast): null"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -248,7 +251,7 @@ margin_left = 4.0
 margin_top = 37.0
 margin_right = 160.0
 margin_bottom = 12.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "Is on floor: null"
 
 [node name="text_position" type="RichTextLabel" parent="GUI/console"]
@@ -257,7 +260,7 @@ margin_left = 4.0
 margin_top = 46.0
 margin_right = 160.0
 margin_bottom = 22.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "Position: null"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,7 +272,7 @@ margin_left = 4.0
 margin_top = 55.0
 margin_right = 160.0
 margin_bottom = 31.0
-custom_fonts/normal_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 45 )
 text = "Speed: null"
 
 [node name="health" type="Control" parent="GUI"]

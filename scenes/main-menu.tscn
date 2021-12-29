@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/main-menu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 61
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[node name="main-menu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 140.0
+margin_top = 130.0
+margin_right = 500.0
+margin_bottom = 349.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 360.0
+margin_bottom = 135.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 360.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Title
+"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 139.0
+margin_right = 360.0
+margin_bottom = 219.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 129.0
+margin_right = 230.0
+margin_bottom = 80.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 101.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_right = 101.0
+margin_bottom = 24.0
+
+[node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 101.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 2 )
+text = "play game"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 28.0
+margin_right = 101.0
+margin_bottom = 52.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_left = 4.0
+margin_right = 96.0
+margin_bottom = 24.0
+
+[node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 24.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+text = "settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 56.0
+margin_right = 101.0
+margin_bottom = 80.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_left = 24.0
+margin_right = 76.0
+margin_bottom = 24.0
+
+[node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 52.0
+margin_bottom = 24.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+text = "quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
