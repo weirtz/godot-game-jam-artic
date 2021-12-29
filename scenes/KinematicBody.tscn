@@ -160,8 +160,8 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=26]
-size = 9
+[sub_resource type="DynamicFont" id=29]
+size = 15
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=23]
@@ -192,19 +192,19 @@ __meta__ = {
 }
 
 [node name="Stamina" type="Control" parent="GUI"]
-margin_left = 231.0
-margin_top = 186.0
-margin_right = 379.0
-margin_bottom = 225.0
+margin_left = 487.0
+margin_top = 434.0
+margin_right = 635.0
+margin_bottom = 473.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="stamina" type="ProgressBar" parent="GUI/Stamina"]
-margin_left = 20.0
-margin_top = 13.0
-margin_right = 137.0
-margin_bottom = 27.0
+margin_left = 140.0
+margin_top = 8.0
+margin_right = 301.0
+margin_bottom = 32.0
 value = 50.0
 percent_visible = false
 script = ExtResource( 11 )
@@ -217,9 +217,9 @@ anims/RESET = SubResource( 27 )
 anims/runningLock = SubResource( 28 )
 
 [node name="screen_text" type="Control" parent="GUI"]
-margin_top = 191.0
-margin_right = 172.0
-margin_bottom = 223.0
+margin_top = 414.0
+margin_right = 286.0
+margin_bottom = 476.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -230,11 +230,11 @@ anims/RESET = SubResource( 24 )
 anims/typewriter = SubResource( 25 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GUI/screen_text"]
-margin_left = 8.0
-margin_top = 4.0
-margin_right = 187.0
-margin_bottom = 26.0
-custom_fonts/normal_font = SubResource( 26 )
+margin_left = 15.0
+margin_top = 14.0
+margin_right = 324.0
+margin_bottom = 68.0
+custom_fonts/normal_font = SubResource( 29 )
 visible_characters = 0
 percent_visible = 0.0
 text = "Why do you keep coming back... You.. know its not safe, right?"
