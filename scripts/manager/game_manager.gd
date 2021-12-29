@@ -19,10 +19,12 @@ func initialise_player():
 	player.inventory.connect("inventory_changed", self, "_on_player_inventory_changed")
 	
 	#load existing inventory.
-	var existing_inventory = load("user://inventory.tres")
-	if existing_inventory:
-		player.inventory.set_items(existing_inventory.get_items())
-	#Give starting items. This will run if it is a new game.
+	var dir = Directory.new()
+	if dir != null:
+		var existing_inventory = load("user://inventory.tres")
+		if existing_inventory:
+			player.inventory.set_items(existing_inventory.get_items())
+		#Give starting items. This will run if it is a new game.
 	else:
 		#player.inventory.add_item("testItem", 3)
 		pass

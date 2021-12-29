@@ -10,9 +10,9 @@
 [ext_resource path="res://assets/sound/atmosphere/atmosphere.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/sound/player/typewriter/typewriter_sound.wav" type="AudioStream" id=10]
-[ext_resource path="res://scenes/stamina.gd" type="Script" id=11]
-[ext_resource path="res://scenes/console_inventory.gd" type="Script" id=12]
-[ext_resource path="res://scenes/main-controls.gd" type="Script" id=13]
+[ext_resource path="res://scripts/player/stamina.gd" type="Script" id=11]
+[ext_resource path="res://scripts/player/console_inventory.gd" type="Script" id=12]
+[ext_resource path="res://scripts/player/main-controls.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=23]
 font_data = ExtResource( 9 )
@@ -186,10 +186,10 @@ __meta__ = {
 }
 
 [node name="stamina" type="ProgressBar" parent="GUI/Stamina"]
-margin_left = -74.9684
-margin_top = -126.387
-margin_right = 86.0316
-margin_bottom = -102.387
+margin_left = -75.0
+margin_top = -120.0
+margin_right = 86.0
+margin_bottom = -102.0
 value = 50.0
 percent_visible = false
 script = ExtResource( 11 )
@@ -230,7 +230,6 @@ __meta__ = {
 }
 
 [node name="console" type="Control" parent="GUI"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
@@ -334,6 +333,9 @@ margin_left = 7.76087
 margin_top = 79.0198
 margin_right = 92.7609
 margin_bottom = 216.02
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GridContainer" type="GridContainer" parent="GUI/console/Panel"]
 anchor_right = 1.0

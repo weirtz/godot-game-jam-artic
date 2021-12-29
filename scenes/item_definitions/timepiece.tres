@@ -7,4 +7,4 @@ script = ExtResource( 1 )
 name = "timepiece"
 stackable = true
 max_stack_size = 99
-type = 2
+type = 0

@@ -57,5 +57,5 @@ func add_item(item_name, quantity):
 		_items.append(new_item)
 		remaining_quantity -= new_item.quantity
 		
-		emit_signal("inventory_changed", self)
+	emit_signal("inventory_changed", self)
 
