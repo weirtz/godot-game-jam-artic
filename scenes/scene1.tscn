@@ -63,12 +63,12 @@ data = PoolVector3Array( -3.9124, -3.9124, -5.8868, -3.8134, 0, -5.8868, -3.9124
 
 [node name="Spatial" type="Spatial"]
 
+[node name="KinematicBody" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0126817, -0.990451, -0.000906352 )
+
 [node name="main-controls" type="Spatial" parent="."]
 pause_mode = 2
 script = ExtResource( 7 )
-
-[node name="KinematicBody" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0126817, -0.990451, -0.000906352 )
 
 [node name="room" type="Spatial" parent="."]
 transform = Transform( 0.346021, 0, 0, 0, 0.346021, 0, 0, 0, 0.346021, 0, 0, 0 )

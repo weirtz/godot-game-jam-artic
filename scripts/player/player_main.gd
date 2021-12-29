@@ -7,7 +7,7 @@ var camera_change = Vector2()
 var tween
 #--------------------
 # Mouse
-var mouse_sensitivity = 0.2
+var mouse_sensitivity = 1
 var camera_angle = 0
 
 func _ready():

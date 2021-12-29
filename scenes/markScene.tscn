@@ -28,7 +28,6 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Place/MeshInstance"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Place/MeshInstance/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="barrel2" parent="Place" instance=ExtResource( 1 )]
