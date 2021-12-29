@@ -8,4 +8,5 @@ func _on_Area_body_entered(body):
 		GameManager.player.inventory.add_item("timepiece", 1)
 		print(GameManager.player.inventory.get_items())
 		$"../AudioStreamPlayer2D".play()
+		$"../AnimationPlayer".queue_free()
 		queue_free() #remove object from scene.
