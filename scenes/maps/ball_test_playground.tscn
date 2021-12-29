@@ -82,39 +82,33 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Icosphere:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 360, 0 ) ]
+}
 
-[sub_resource type="Animation" id=39]
-resource_name = "Spin"
+[sub_resource type="Animation" id=45]
+resource_name = "spin"
 loop = true
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("Icosphere:rotation_degrees:x")
+tracks/0/type = "value"
+tracks/0/path = NodePath("Icosphere:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("Icosphere:rotation_degrees:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 360, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("Icosphere:rotation_degrees:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 360, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
 [sub_resource type="CylinderMesh" id=40]
@@ -197,8 +191,9 @@ material/0 = SubResource( 37 )
 shape = SubResource( 36 )
 
 [node name="AnimationPlayerBallSpin" type="AnimationPlayer" parent="Ball"]
+autoplay = "spin"
 anims/RESET = SubResource( 38 )
-anims/Spin = SubResource( 39 )
+anims/spin = SubResource( 45 )
 
 [node name="Beam" type="MeshInstance" parent="Ball"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
