@@ -28,19 +28,36 @@ _global_script_classes=[ {
 "class": "PlayerMain",
 "language": "GDScript",
 "path": "res://scripts/player/player_main.gd"
+}, {
+"base": "Resource",
+"class": "inventory",
+"language": "GDScript",
+"path": "res://scripts/player/inventory.gd"
+}, {
+"base": "Resource",
+"class": "itemResource",
+"language": "GDScript",
+"path": "res://scripts/manager/item.gd"
 } ]
 _global_script_class_icons={
 "Console": "",
 "Fly": "",
 "Movement": "",
-"PlayerMain": ""
+"PlayerMain": "",
+"inventory": "",
+"itemResource": ""
 }
 
 [application]
 
 config/name="Games"
-run/main_scene="res://scenes/main-menu.tscn"
+run/main_scene="res://scenes/menus/main-menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+ItemDatabase="*res://scripts/manager/ItemDatabase.gd"
+GameManager="*res://scripts/manager/game_manager.gd"
 
 [display]
 

@@ -10,6 +10,14 @@ var tween
 var mouse_sensitivity = 1
 var camera_angle = 0
 
+#--------------------
+# Inventory
+var inventory_resource = load("res://scripts/player/inventory.gd")
+var inventory = inventory_resource.new()
+
+
+#--------------------
+# Functions
 func _ready():
 	pass
 func _input(event):
@@ -29,7 +37,6 @@ func _physics_process(delta):
 	aim()
 	$"GUI/console".console()
 
-	
 	tween = $"PlayerCamera/FovTween"
 	#Flying Toggle
 	if Input.is_action_just_pressed("fly"):

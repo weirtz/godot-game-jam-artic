@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/player/player_main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/console.gd" type="Script" id=2]
@@ -11,7 +11,11 @@
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/sound/player/typewriter/typewriter_sound.wav" type="AudioStream" id=10]
 [ext_resource path="res://scenes/stamina.gd" type="Script" id=11]
+[ext_resource path="res://scenes/console_inventory.gd" type="Script" id=12]
 [ext_resource path="res://scenes/main-controls.gd" type="Script" id=13]
+
+[sub_resource type="DynamicFont" id=23]
+font_data = ExtResource( 9 )
 
 [sub_resource type="Animation" id=27]
 length = 0.001
@@ -104,11 +108,15 @@ size = 15
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=45]
-size = 8
+size = 12
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=46]
+size = 9
 font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=47]
+default_font = SubResource( 46 )
 
 [sub_resource type="CapsuleMesh" id=20]
 
@@ -127,6 +135,43 @@ script = ExtResource( 13 )
 [node name="GUI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+rect_scale = Vector2( 1.41737, 1.41737 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause" type="Control" parent="GUI"]
+visible = false
+margin_left = -16.0
+margin_top = -10.0
+margin_right = 270.0
+margin_bottom = 234.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GUI/pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4157.0
+margin_top = -2014.0
+margin_right = 2697.0
+margin_bottom = 1568.0
+color = Color( 0, 0, 0, 0.831373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/pause"]
+margin_left = 34.0
+margin_top = 19.0
+margin_right = 96.0
+margin_bottom = 51.0
+custom_fonts/normal_font = SubResource( 23 )
+text = "PAUSED"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,10 +186,10 @@ __meta__ = {
 }
 
 [node name="stamina" type="ProgressBar" parent="GUI/Stamina"]
-margin_left = 140.0
-margin_top = 8.0
-margin_right = 301.0
-margin_bottom = 32.0
+margin_left = -74.9684
+margin_top = -126.387
+margin_right = 86.0316
+margin_bottom = -102.387
 value = 50.0
 percent_visible = false
 script = ExtResource( 11 )
@@ -194,8 +239,8 @@ __meta__ = {
 }
 
 [node name="background" type="ColorRect" parent="GUI/console"]
-margin_right = 145.0
-margin_bottom = 68.0
+margin_right = 216.0
+margin_bottom = 71.0
 color = Color( 0, 0, 0, 0.788235 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -232,6 +277,9 @@ margin_right = 160.0
 margin_bottom = -5.0
 custom_fonts/normal_font = SubResource( 45 )
 text = "FOV: null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="text_contact" type="RichTextLabel" parent="GUI/console"]
 anchor_bottom = 1.0
@@ -253,6 +301,9 @@ margin_right = 160.0
 margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 45 )
 text = "Is on floor: null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="text_position" type="RichTextLabel" parent="GUI/console"]
 anchor_bottom = 1.0
@@ -274,6 +325,40 @@ margin_right = 160.0
 margin_bottom = 31.0
 custom_fonts/normal_font = SubResource( 45 )
 text = "Speed: null"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI/console"]
+margin_left = 7.76087
+margin_top = 79.0198
+margin_right = 92.7609
+margin_bottom = 216.02
+
+[node name="GridContainer" type="GridContainer" parent="GUI/console/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.583
+margin_top = 16.2273
+margin_right = -9.417
+margin_bottom = -3.77274
+theme = SubResource( 47 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inventory" type="RichTextLabel" parent="GUI/console/Panel"]
+margin_left = 12.6996
+margin_right = 94.6996
+margin_bottom = 15.0
+custom_fonts/normal_font = SubResource( 45 )
+text = "inventory
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="health" type="Control" parent="GUI"]
 visible = false
@@ -303,42 +388,6 @@ texture = ExtResource( 3 )
 position = Vector2( 103.622, 21.2645 )
 scale = Vector2( 0.418124, 0.418124 )
 texture = ExtResource( 3 )
-
-[node name="pause" type="Control" parent="GUI"]
-visible = false
-margin_left = -16.0
-margin_top = -10.0
-margin_right = 270.0
-margin_bottom = 234.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="GUI/pause"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -4157.0
-margin_top = -2014.0
-margin_right = 2697.0
-margin_bottom = 1568.0
-color = Color( 0, 0, 0, 0.831373 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="GUI/pause"]
-margin_left = 34.0
-margin_top = 19.0
-margin_right = 96.0
-margin_bottom = 51.0
-custom_fonts/normal_font = SubResource( 23 )
-text = "PAUSED"
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayerCamera" type="Camera" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.088, 3.028, 0.120761 )
