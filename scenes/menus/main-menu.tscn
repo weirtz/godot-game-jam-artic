@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/menus/main-menu.gd" type="Script" id=1]
+[ext_resource path="res://scripts/menus/main-menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]

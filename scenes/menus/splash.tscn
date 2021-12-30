@@ -1,0 +1,127 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://scripts/menus/splash.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5521.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5525.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5519.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5515.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5523.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5514.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5522.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5527.png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5518.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5517.png" type="Texture" id=11]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5520.png" type="Texture" id=12]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5516.png" type="Texture" id=13]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5526.png" type="Texture" id=14]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5524.png" type="Texture" id=15]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5513.png" type="Texture" id=16]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5505.png" type="Texture" id=17]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5504.png" type="Texture" id=18]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5507.png" type="Texture" id=19]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5500.png" type="Texture" id=20]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5501.png" type="Texture" id=21]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5502.png" type="Texture" id=22]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5503.png" type="Texture" id=23]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5508.png" type="Texture" id=24]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5509.png" type="Texture" id=25]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5506.png" type="Texture" id=26]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5510.png" type="Texture" id=27]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5511.png" type="Texture" id=28]
+[ext_resource path="res://assets/textures/menus/splash/logo_anim/nnlogo5512.png" type="Texture" id=29]
+[ext_resource path="res://assets/sound/splash/crack.ogg" type="AudioStream" id=30]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "logo"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -204.0
+margin_top = -74.0
+margin_right = 819.0
+margin_bottom = 587.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 307, 236 )
+scale = Vector2( 0.221374, 0.221374 )
+frames = SubResource( 1 )
+frame = 27
+speed_scale = 1.5
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "logo"
+anims/RESET = SubResource( 2 )
+anims/logo = SubResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 323, 173 )
+stream = ExtResource( 30 )
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

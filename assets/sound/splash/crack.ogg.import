@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crack.ogg-ba5a5a646ad00a872c5efca5efd17692.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/splash/crack.ogg"
+dest_files=[ "res://.import/crack.ogg-ba5a5a646ad00a872c5efca5efd17692.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0.0
