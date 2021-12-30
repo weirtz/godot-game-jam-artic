@@ -12,6 +12,8 @@ var tween
 var fovDefault : = 64
 var fovRunning : = 68
 onready var playerCamera = get_node("PlayerCamera")
+onready var stamina_bar = $"../../GUI/Stamina/stamina"
+
 #--------------------
 # Walking
 var gravity : = -3.8 * 2
@@ -34,6 +36,7 @@ const MAX_SLOPE_ANGLE = 10
 
 func _ready():
 	on_floor = $"../../../KinematicBody".is_on_floor()
+	stamina_bar.connect("replenished", self, "_start_sprinting")
 
 func walk(delta):
 	#Reset the direction of the player
@@ -47,11 +50,8 @@ func walk(delta):
 	if(Input.is_action_pressed("move_fw")):
 		direction -= aim.z
 		standing = false
-		if Input.is_action_just_pressed("move_sprint") and $"../../GUI/Stamina/stamina".runningLockOut == false:
-			speed = MAX_RUNNING_SPEED
-			tween.interpolate_property($"../../PlayerCamera", "fov", $"../../PlayerCamera".fov, fovRunning, 0.1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-			tween.start()
-			running = true
+		if Input.is_action_just_pressed("move_sprint") and stamina_bar.runningLockOut == false:
+			_start_sprinting()
 		if Input.is_action_just_released("move_sprint"):
 			speed = MAX_SPEED
 			tween.interpolate_property($"../../PlayerCamera", "fov", $"../../PlayerCamera".fov, fovDefault, 0.1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
@@ -131,4 +131,10 @@ func walk(delta):
 	if Input.is_action_pressed("move_squat"):
 
 		direction.y -= 2
-		
+
+
+func _start_sprinting():
+	speed = MAX_RUNNING_SPEED
+	tween.interpolate_property($"../../PlayerCamera", "fov", $"../../PlayerCamera".fov, fovRunning, 0.1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween.start()
+	running = true

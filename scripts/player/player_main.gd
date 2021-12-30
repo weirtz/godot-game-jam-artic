@@ -14,7 +14,7 @@ var camera_angle = 0
 # Inventory
 var inventory_resource = load("res://scripts/player/inventory.gd")
 var inventory = inventory_resource.new()
-
+onready var movement = $PlayerMovement/Movement
 
 #--------------------
 # Functions

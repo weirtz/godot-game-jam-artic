@@ -5,11 +5,12 @@ extends ProgressBar
 # var a = 2
 # var b = "text"
 var runningLockOut : = false 
+signal replenished
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-		
+	pass
+
 func _process(delta):
 	
 	#control the progress bar when sprinting
@@ -30,11 +31,16 @@ func _process(delta):
 		
 		$"../RunningLockAnim".play("runningLock")
 	if value >= 100:
-		runningLockOut = false
-		$"../RunningLockAnim".stop()
-		visible = true
+		_replenished()
 
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func increase_stamina(stamina: float):
+	value += stamina
+	_replenished()
+
+
+func _replenished():
+	runningLockOut = false
+	$"../RunningLockAnim".stop()
+	visible = true
+	emit_signal("replenished")
