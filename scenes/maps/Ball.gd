@@ -13,7 +13,7 @@ var countdown_timer: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayerBallSpin.play("Spin")
+	$AnimationPlayerBallSpin.play("spin")
 	$AnimationPlayerBallDrop.play("Drop")
 	target_translation = Vector3(0.0,translation.y,0.0)
 	pass # Replace with function body.
