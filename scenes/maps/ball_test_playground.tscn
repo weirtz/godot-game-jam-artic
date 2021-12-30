@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/textures/urban/PAVEMENT.png" type="Texture" id=1]
 [ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/item_scenes/timepiece.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/item_scenes/stamina-item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/props/barrel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/textures/urban/CROSSCUBE.png" type="Texture" id=15]
 [ext_resource path="res://assets/meshes/Material_001.material" type="Material" id=16]
@@ -398,3 +399,6 @@ transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, 5.20067, 6.3
 
 [node name="StaminaItem" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, 6.95192, 2.21133e-05, -4.0741 )
+
+[node name="barrel" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.218272, 0, 0, 0, 0.218272, 0, 0, 0, 0.218272, -6.47969, 0.195243, 5.91058 )

@@ -54,7 +54,7 @@ mid_height = 0.001
 rings = 32
 
 [node name="barrel" type="MeshInstance"]
-transform = Transform( 0.642746, 0, 0, 0, 0.642746, 0, 0, 0, 0.642746, 2.15832, -3.40432, -7.42624 )
+transform = Transform( 0.218272, 0, 0, 0, 0.218272, 0, 0, 0, 0.218272, 0.136797, 0.168214, -0.0101957 )
 mesh = SubResource( 2 )
 material/0 = null
 
