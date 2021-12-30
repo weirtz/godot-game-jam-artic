@@ -51,9 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Games"
-run/main_scene="res://scenes/menus/splash.tscn"
-boot_splash/image="res://assets/textures/menus/splash/splash.png"
-boot_splash/bg_color=Color( 1, 1, 1, 1 )
+run/main_scene="res://scenes/menus/main-menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

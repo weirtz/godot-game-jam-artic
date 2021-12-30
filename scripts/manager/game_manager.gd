@@ -3,6 +3,7 @@ extends Node
 signal player_initialised
 
 var player
+var ball
 
 #checks to see if player is initialised, if not it does so and waits.
 func _process(delta):
@@ -28,7 +29,11 @@ func initialise_player():
 	else:
 		#player.inventory.add_item("testItem", 3)
 		pass
-		
+
+func init_ball():
+	ball = get_tree().get_root().get_node("/root/Map/Ball")
+
+
 #save inventory when changed.
 func _on_player_inventory_changed(inventory):
 	ResourceSaver.save("user://inventory.tres", inventory)

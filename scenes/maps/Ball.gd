@@ -13,6 +13,7 @@ var countdown_timer: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.init_ball()
 	$AnimationPlayerBallSpin.play("spin")
 	$AnimationPlayerBallDrop.play("Drop")
 	target_translation = Vector3(0.0,translation.y,0.0)
@@ -27,7 +28,7 @@ func _process(delta):
 	_process_move_ball_back_to()
 	if Input.is_action_pressed("dev_add_time"):
 		move_ball_back_secs(1.0)
-	set_ball_drop(ball_drop_progress)
+	_set_ball_drop(ball_drop_progress)
 	
 	# Move towards player
 	move_speed = MOVE_SPEED_FACTOR * ball_drop_progress
@@ -40,7 +41,7 @@ func _process(delta):
 		if not $AudioStreamPlayer.playing:
 			$AudioStreamPlayer.play()
 
-func set_ball_drop(ball_drop_progress: float):
+func _set_ball_drop(ball_drop_progress: float):
 	var bottom_y = -8.5
 	var ball_y = 0.0 + ball_drop_progress * bottom_y
 	$Icosphere.translation.y = ball_y

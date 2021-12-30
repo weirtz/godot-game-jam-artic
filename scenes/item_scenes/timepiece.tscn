@@ -183,4 +183,5 @@ amount = 2
 process_material = SubResource( 9 )
 draw_pass_1 = SubResource( 10 )
 
+[connection signal="gameplay_exited" from="." to="Area" method="_on_Timepiece_gameplay_exited"]
 [connection signal="body_entered" from="Area" to="Area" method="_on_Area_body_entered"]
