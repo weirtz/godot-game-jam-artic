@@ -31,16 +31,17 @@ func _process(delta):
 		
 		$"../RunningLockAnim".play("runningLock")
 	if value >= 100:
-		_replenished()
+		_replenished(false)
 
 
 func increase_stamina(stamina: float):
 	value += stamina
-	_replenished()
+	_replenished(true)
 
 
-func _replenished():
+func _replenished(immediate_sprint: float):
 	runningLockOut = false
 	$"../RunningLockAnim".stop()
 	visible = true
-	emit_signal("replenished")
+	if immediate_sprint:
+		emit_signal("replenished")
