@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 func _input(event):
 	if(event is InputEventKey):
@@ -10,3 +10,6 @@ func goto_title():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	goto_title()
 	pass
+
+func _ready():
+	$AnimationPlayer.play("logo")

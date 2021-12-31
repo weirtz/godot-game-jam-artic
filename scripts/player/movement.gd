@@ -83,13 +83,15 @@ func walk(delta):
 	direction = direction.normalized()
 	
 	#Double Verification if on floor, handles walking on slopes (RayCast)
+	#---------------------------------------------------
 	if $"../../../KinematicBody".is_on_floor():
 		rayCast = true
 		on_floor = $"../../../KinematicBody".is_on_floor()
 		var n = $"../../RayCast".get_collision_normal()
 		var floor_angle = rad2deg(acos(n.dot(Vector3(0,1,0))))
-		if floor_angle > MAX_SLOPE_ANGLE:
-			velocity.y += (gravity + (gravity * floor_angle) / 5) * delta
+		print(floor_angle)
+		#if floor_angle > MAX_SLOPE_ANGLE:
+		#	velocity.y += (gravity + (gravity * floor_angle) / 5) * delta
 
 	else:
 		if !$"../../RayCast".is_colliding(): # if raycast is NOT colliding
@@ -102,8 +104,8 @@ func walk(delta):
 		
 	if rayCast and !$"../../../KinematicBody".is_on_floor():
 
-		$"../../../KinematicBody".move_and_collide(Vector3(0,-1, 0))
-	
+		$"../../../KinematicBody".move_and_collide(Vector3(0,0, 0))
+	#---------------------------------------------------
 	var temp_velocity = velocity
 	temp_velocity.y = 0
 
