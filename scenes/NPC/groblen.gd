@@ -8,6 +8,7 @@ var is_flying = true
 var normal_gravity = 7.6
 var falling_gravity = 0.5
 const MOVE_SPEED_FACTOR = 1.0
+var hp = 1
 
 onready var ground_ray_cast = get_node("RayCast")
 onready var animation_player = get_node("AnimationPlayer")
@@ -17,6 +18,9 @@ func _ready():
 
 
 func _process(delta):
+	if hp <= 0:
+		queue_free()
+	
 	if not is_flying:
 		# Move towards player
 		move_speed = MOVE_SPEED_FACTOR
@@ -32,7 +36,6 @@ func _process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
 	if velocity.y == 0.0:
-		print("Found ground ")
 		_start_chasing()
 
 

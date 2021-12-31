@@ -1721,7 +1721,7 @@ radius = 0.5
 radius = 0.75
 height = 1.0
 
-[node name="groblen" type="KinematicBody"]
+[node name="groblen" type="KinematicBody" groups=["enemy"]]
 script = ExtResource( 2 )
 
 [node name="metarig" type="Spatial" parent="."]
