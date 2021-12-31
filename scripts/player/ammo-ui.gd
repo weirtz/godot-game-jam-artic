@@ -18,4 +18,9 @@ func _on_player_inventory_changed(inventory):
 			var item_label = Label.new()
 			item_label.text = "%s x%d" % ["Ammo: ", item.quantity]
 			add_child(item_label)
+		if item.quantity <= 0:
+			#if the ammo count reaches 0 then remove weapon from hand
+			var weapon = get_tree().get_root().get_node("/root/Map/KinematicBody")
+			weapon.setWeaponInHand(false)
+			
 			

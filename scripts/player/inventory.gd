@@ -25,7 +25,12 @@ func remove_item(item_name, quantity):
 		if inventory_item.item_reference.name != item.name:
 			continue
 			
-		inventory_item.quantity = inventory_item.quantity - quantity
+		if inventory_item.quantity <= 0:
+			print("Out of ammo.")
+			
+		if inventory_item.quantity > 0:
+			inventory_item.quantity = inventory_item.quantity - quantity
+			
 	emit_signal("inventory_changed", self)
 	
 # add item to inventory, supply with the item name and quantity

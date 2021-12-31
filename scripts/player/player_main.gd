@@ -51,4 +51,10 @@ func _physics_process(delta):
 		$PlayerMovement/Fly.fly(delta)
 	else:
 		$PlayerMovement/Movement.walk(delta)
+	
+func setWeaponInHand(value):
+	if value == true:
+		$PlayerCamera/Hand.visible = true
+	if value == false:
+		$PlayerCamera/Hand.visible = false
 
