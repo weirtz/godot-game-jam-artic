@@ -1,6 +1,8 @@
 extends KinematicBody
 class_name PlayerMain
 
+const STUN_TIME = 5.0
+
 #--------------------
 # General 
 var camera_change = Vector2()
@@ -20,9 +22,13 @@ onready var movement = $PlayerMovement/Movement
 # Functions
 func _ready():
 	pass
+
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		camera_change = event.relative
+
+
 func aim():
 	if camera_change.length() > 0 :
 		rotate_y(deg2rad(-camera_change.x * mouse_sensitivity))
@@ -31,7 +37,8 @@ func aim():
 			$PlayerCamera.rotate_x(deg2rad(change))
 			camera_angle += change
 		camera_change = Vector2()
-		
+
+
 func _physics_process(delta):
 	#Initiate Player
 	aim()
@@ -58,3 +65,7 @@ func setWeaponInHand(value):
 	if value == false:
 		$PlayerCamera/Hand.visible = false
 
+
+func stunned_by_groblen():
+	print("stunned")
+	movement.stamina_bar.set_timed_walk_override(STUN_TIME)

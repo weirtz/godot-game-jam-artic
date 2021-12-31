@@ -26,7 +26,9 @@ func _process(delta):
 		move_speed = MOVE_SPEED_FACTOR
 		target_translation.x = player_body.translation.x
 		target_translation.z = player_body.translation.z
-		velocity = (target_translation-translation).normalized()*move_speed
+		var tmp_velocity = (target_translation-translation).normalized()*move_speed
+		velocity.x = tmp_velocity.x
+		velocity.z = tmp_velocity.z
 		velocity.y -= normal_gravity * delta
 		
 		look_at(target_translation, Vector3.UP)
@@ -34,7 +36,7 @@ func _process(delta):
 		velocity.y -= falling_gravity * delta
 		
 	velocity = move_and_slide(velocity, Vector3.UP)
-	
+
 	if velocity.y == 0.0:
 		_start_chasing()
 
@@ -56,12 +58,18 @@ func _start_flying():
 
 func _on_Area_body_entered(body):
 	if body.name == "KinematicBody":
-		animation_player.play("NoseAttack")
-	print("name " + body.get_parent().name + "isGround = " + str("Ground" in body.get_parent().name))
+		_attack_player()
+	
 	if "Ground" in body.get_parent().name:
 		_start_chasing()
 
 
 func _on_Area_body_exited(body):
-	if body.name == "KinematicBody":
+	if body.get_parent().name == "KinematicBody":
 		animation_player.play("GrobWalk")
+
+
+func _attack_player():
+	animation_player.play("NoseAttack")
+	var player = get_tree().get_root().get_node("Map/KinematicBody")
+	player.stunned_by_groblen()
