@@ -6,11 +6,11 @@ func _ready():
 
 # resume game button
 func _on_MenuButton_pressed():
-	get_tree().change_scene("res://scenes/maps/ball_test_playground.tscn")
+	get_tree().change_scene("res://scenes/maps/city.tscn")
 
 # new game button
 func _on_New_Game_pressed():
 	var dir = Directory.new()
 	if dir != null:
 		dir.remove("user://inventory.tres")
-		get_tree().change_scene("res://scenes/maps/ball_test_playground.tscn")
+		get_tree().change_scene("res://scenes/maps/city.tscn")

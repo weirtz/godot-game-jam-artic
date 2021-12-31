@@ -26,7 +26,7 @@ func fly(delta):
 		direction -= aim.x
 	if(Input.is_action_pressed("move_r")):
 		direction += aim.x
-	if(Input.is_action_pressed("move_squat")):
+	if(Input.is_action_pressed("move_sprint")):
 		direction -= aim.y * 1.5
 	if(Input.is_action_pressed("move_jump")):
 		direction += aim.y * 1.5

@@ -15,7 +15,7 @@ func _process(delta):
 	
 	#control the progress bar when sprinting
 	if $"../../../PlayerMovement/Movement".running == true:
-		value -= 10*delta
+		value -= 5*delta
 	else:
 		if value <= 100:
 			value += 1*delta*10

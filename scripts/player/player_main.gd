@@ -41,6 +41,7 @@ func _physics_process(delta):
 	#Flying Toggle
 	if Input.is_action_just_pressed("fly"):
 		$PlayerMovement/Fly.flying = !$PlayerMovement/Fly.flying
+		$HitBox.visible = !$HitBox.visible
 	if $PlayerMovement/Fly.flying:
 		$PlayerMovement/Movement.speed = $PlayerMovement/Movement.MAX_SPEED
 		

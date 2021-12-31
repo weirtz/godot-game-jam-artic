@@ -1713,7 +1713,8 @@ tracks/53/imported = false
 tracks/53/enabled = true
 tracks/53/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[node name="groblen" type="Spatial"]
+[node name="groblen" type="KinematicBody"]
+transform = Transform( 41.3924, 0, 0, 0, 41.3924, 0, 0, 0, 41.3924, 0, 0, 0 )
 
 [node name="metarig" type="Spatial" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )

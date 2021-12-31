@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/asphalt.glb-10d616e958fcaf31856394d00a563396.scn"
+path="res://.import/city-map-rc4.glb-c61d0a5e2bf15205fb5b80ea4f297b4f.scn"
 
 [deps]
 
-source_file="res://assets/models/asphalt.glb"
-dest_files=[ "res://.import/asphalt.glb-10d616e958fcaf31856394d00a563396.scn" ]
+source_file="res://assets/models/maps/city-map-rc4.glb"
+dest_files=[ "res://.import/city-map-rc4.glb-c61d0a5e2bf15205fb5b80ea4f297b4f.scn" ]
 
 [params]
 

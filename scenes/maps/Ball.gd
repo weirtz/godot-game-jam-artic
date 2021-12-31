@@ -17,11 +17,11 @@ func _ready():
 	$AnimationPlayerBallSpin.play("spin")
 	$AnimationPlayerBallDrop.play("Drop")
 	target_translation = Vector3(0.0,translation.y,0.0)
-	pass # Replace with function body.
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	countdown_timer = floor(anim_ball_drop.current_animation_length) - floor(anim_ball_drop.current_animation_position)
 	secs_text_label.text = str(countdown_timer) + " Seconds"
 
@@ -37,9 +37,9 @@ func _process(delta):
 	velocity = (target_translation-translation).normalized()*move_speed
 	velocity = move_and_slide(velocity);
 	
-	if countdown_timer == 3:
-		if not $AudioStreamPlayer.playing:
-			$AudioStreamPlayer.play()
+	#if countdown_timer == 3:
+		#if not $AudioStreamPlayer.playing:
+		#	$AudioStreamPlayer.play()
 
 func _set_ball_drop(ball_drop_progress: float):
 	var bottom_y = -8.5
@@ -55,3 +55,7 @@ func _process_move_ball_back_to():
 	if $AnimationPlayerBallDrop.current_animation_position <= rewind_secs:
 		$AnimationPlayerBallDrop.play("Drop")
 		$AnimationPlayerBallDrop.playback_speed = 1.0
+		
+
+	
+

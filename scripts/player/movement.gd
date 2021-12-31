@@ -11,7 +11,7 @@ var direction = Vector3()
 var tween
 var fovDefault : = 64
 var fovRunning : = 68
-onready var playerCamera = get_node("PlayerCamera")
+onready var playerCamera = $"../../PlayerCamera"
 onready var stamina_bar = $"../../GUI/Stamina/stamina"
 
 #--------------------
