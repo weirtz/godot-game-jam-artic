@@ -33,7 +33,6 @@ func initialise_player():
 func init_ball():
 	ball = get_tree().get_root().get_node("/root/Map/Ball")
 
-
 #save inventory when changed.
 func _on_player_inventory_changed(inventory):
 	ResourceSaver.save("user://inventory.tres", inventory)

@@ -9,7 +9,7 @@ export var ball_drop_distance = 50
 export var ball_drop_progress = 0.0
 
 var rewind_secs = 0.0
-onready var secs_text_label: RichTextLabel = $RichTextLabelSecs
+onready var secs_text_label: RichTextLabel = $Control/RichTextLabelSecs
 onready var anim_ball_drop: AnimationPlayer = $AnimationPlayerBallDrop
 var countdown_timer: float
 

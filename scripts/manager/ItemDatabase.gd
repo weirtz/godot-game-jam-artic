@@ -10,8 +10,10 @@ func _ready():
 	
 	#grab all items from scenes/item_definitions and save them in an array
 	var filename = directory.get_next()
+	print("ITEMS LOADED:")
 	while(filename):
 		if not directory.current_is_dir():
+			print(filename)
 			items.append(load("res://scenes/item_definitions/%s" % filename))
 		
 		filename = directory.get_next()

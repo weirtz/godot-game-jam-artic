@@ -17,6 +17,16 @@ func get_items():
 	
 func get_item(index):
 	return _items[index]
+
+func remove_item(item_name, quantity):
+	for i in range(_items.size()):
+		var item = ItemDatabase.getItem(item_name)
+		var inventory_item = _items[i]
+		if inventory_item.item_reference.name != item.name:
+			continue
+			
+		inventory_item.quantity = inventory_item.quantity - quantity
+	emit_signal("inventory_changed", self)
 	
 # add item to inventory, supply with the item name and quantity
 func add_item(item_name, quantity):

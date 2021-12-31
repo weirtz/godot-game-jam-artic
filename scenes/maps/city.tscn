@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://scenes/item_scenes/stamina-item.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenes/item_scenes/timepiece.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scripts/map/turn_off_editor_lights.gd" type="Script" id=34]
+[ext_resource path="res://scenes/item_scenes/weapon.tscn" type="PackedScene" id=35]
 
 [sub_resource type="SphereShape" id=39]
 
@@ -1553,14 +1554,24 @@ autoplay = "Drop"
 anims/Drop = SubResource( 33 )
 anims/RESET = SubResource( 34 )
 
-[node name="RichTextLabelSecs" type="RichTextLabel" parent="Ball"]
-anchor_left = 0.5
+[node name="Control" type="Control" parent="Ball"]
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -93.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabelSecs" type="RichTextLabel" parent="Ball/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -125.0
-margin_top = -45.0
+margin_top = -22.5
 margin_right = 125.0
+margin_bottom = 22.5
 custom_fonts/normal_font = SubResource( 35 )
 text = "- Time"
 __meta__ = {
@@ -1831,3 +1842,15 @@ transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -25.5393, -0
 
 [node name="Timepiece3" parent="." instance=ExtResource( 33 )]
 transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -18.0519, 11.3166, 36.7864 )
+
+[node name="bottleblaster" parent="." instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 24.2119 )
+
+[node name="bottleblaster2" parent="." instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 25.0634 )
+
+[node name="bottleblaster3" parent="." instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 23.2929 )
+
+[node name="bottleblaster4" parent="." instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 22.3444 )
