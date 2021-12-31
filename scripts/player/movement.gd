@@ -89,7 +89,7 @@ func walk(delta):
 		on_floor = $"../../../KinematicBody".is_on_floor()
 		var n = $"../../RayCast".get_collision_normal()
 		var floor_angle = rad2deg(acos(n.dot(Vector3(0,1,0))))
-		print(floor_angle)
+
 		#if floor_angle > MAX_SLOPE_ANGLE:
 		#	velocity.y += (gravity + (gravity * floor_angle) / 5) * delta
 
