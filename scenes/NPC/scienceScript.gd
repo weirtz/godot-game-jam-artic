@@ -12,8 +12,8 @@ onready var cam = get_node("ScienceViewport/ScienceCamera")
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	cam.translate(transform.origin)
+#func _ready():
+	#cam.translate(transform.origin)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

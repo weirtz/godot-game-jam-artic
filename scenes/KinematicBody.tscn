@@ -622,6 +622,7 @@ __meta__ = {
 
 [node name="PlayerCamera" type="Camera" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.088, 3.028, 0.120761 )
+cull_mask = 1047551
 
 [node name="Hand" type="Spatial" parent="PlayerCamera"]
 visible = false
