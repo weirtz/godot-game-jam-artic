@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shake.wav-3056f69b0dcd2b42403b2290944c69e7.sample"
+
+[deps]
+
+source_file="res://assets/sound/weapon/shake.wav"
+dest_files=[ "res://.import/shake.wav-3056f69b0dcd2b42403b2290944c69e7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

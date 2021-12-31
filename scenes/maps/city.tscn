@@ -1551,10 +1551,15 @@ anims/Drop = SubResource( 33 )
 anims/RESET = SubResource( 34 )
 
 [node name="RichTextLabelSecs" type="RichTextLabel" parent="Ball"]
-margin_right = 296.0
-margin_bottom = 142.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -125.0
+margin_top = -45.0
+margin_right = 125.0
 custom_fonts/normal_font = SubResource( 35 )
-text = " Seconds"
+text = "- Time"
 __meta__ = {
 "_edit_use_anchors_": false
 }

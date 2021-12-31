@@ -1,8 +1,8 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/player/player_main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/console.gd" type="Script" id=2]
-[ext_resource path="res://assets/gui/player/health.png" type="Texture" id=3]
+[ext_resource path="res://assets/models/weapon/bottleblaster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/player/movement.gd" type="Script" id=4]
 [ext_resource path="res://scripts/player/fly.gd" type="Script" id=5]
 [ext_resource path="res://assets/sound/player/jump/jump.wav" type="AudioStream" id=6]
@@ -14,6 +14,9 @@
 [ext_resource path="res://scripts/player/console_inventory.gd" type="Script" id=12]
 [ext_resource path="res://scripts/player/main-controls.gd" type="Script" id=13]
 [ext_resource path="res://assets/textures/sky/AllSkyFree_Sky_MoonBurst_Equirect.png" type="Texture" id=14]
+[ext_resource path="res://assets/models/weapon/crosshair.png" type="Texture" id=15]
+[ext_resource path="res://assets/models/weapon/shot.png" type="Texture" id=16]
+[ext_resource path="res://scripts/player/weapon.gd" type="Script" id=17]
 
 [sub_resource type="PanoramaSky" id=53]
 panorama = ExtResource( 14 )
@@ -134,6 +137,85 @@ default_font = SubResource( 46 )
 [sub_resource type="DynamicFont" id=23]
 font_data = ExtResource( 9 )
 
+[sub_resource type="Animation" id=54]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.144668, -0.131937, -0.134142 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -27.62, 98.434, -63.467 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "shoot"
+length = 0.56
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.145, -0.152261, -0.11 ), Vector3( 0.145, -0.027, 0.06 ), Vector3( 0.145, -0.152261, -0.11 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -27.62, 98.434, -63.467 ), Vector3( -27.62, 74.687, -56.073 ), Vector3( -27.62, 98.434, -63.467 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0371257, 0.0934544, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.626, 0.626, 0.626 ), Vector3( 0.626, 0.626, 0.626 ), Vector3( 0, 0, 0 ) ]
+}
+
 [sub_resource type="CapsuleMesh" id=20]
 
 [sub_resource type="SpatialMaterial" id=21]
@@ -152,27 +234,34 @@ pause_mode = 2
 script = ExtResource( 13 )
 
 [node name="GUI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_scale = Vector2( 1.41737, 1.41737 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Stamina" type="Control" parent="GUI"]
-margin_left = 487.0
-margin_top = 434.0
-margin_right = 635.0
-margin_bottom = 473.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -180.0
+margin_top = -37.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="stamina" type="ProgressBar" parent="GUI/Stamina"]
-margin_left = -75.0
-margin_top = -120.0
-margin_right = 86.0
-margin_bottom = -102.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.5
+margin_top = -9.0
+margin_right = 80.5
+margin_bottom = 9.0
 value = 50.0
 percent_visible = false
 script = ExtResource( 11 )
@@ -312,10 +401,9 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="GUI/console"]
-margin_left = 7.76087
-margin_top = 79.0198
-margin_right = 92.7609
-margin_bottom = 216.02
+margin_top = 79.0
+margin_right = 217.0
+margin_bottom = 139.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -334,13 +422,36 @@ __meta__ = {
 }
 
 [node name="inventory" type="RichTextLabel" parent="GUI/console/Panel"]
-margin_left = 12.6996
-margin_right = 94.6996
-margin_bottom = 15.0
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 87.0
+margin_bottom = 16.0
 custom_fonts/normal_font = SubResource( 45 )
 text = "inventory
 "
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crosshair" type="Control" parent="GUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="GUI/crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+texture = ExtResource( 15 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -381,37 +492,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="health" type="Control" parent="GUI"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="GUI/health"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -26.0069
-margin_top = 549.256
-margin_right = 10.9931
-margin_bottom = 546.256
-
-[node name="Sprite" type="Sprite" parent="GUI/health/MarginContainer"]
-position = Vector2( 17.5284, 21.2645 )
-scale = Vector2( 0.418124, 0.418124 )
-texture = ExtResource( 3 )
-
-[node name="Sprite2" type="Sprite" parent="GUI/health/MarginContainer"]
-position = Vector2( 61.0508, 21.2645 )
-scale = Vector2( 0.418124, 0.418124 )
-texture = ExtResource( 3 )
-
-[node name="Sprite3" type="Sprite" parent="GUI/health/MarginContainer"]
-position = Vector2( 103.622, 21.2645 )
-scale = Vector2( 0.418124, 0.418124 )
-texture = ExtResource( 3 )
-
 [node name="PlayerCamera" type="Camera" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.088, 3.028, 0.120761 )
+
+[node name="Hand" type="Spatial" parent="PlayerCamera"]
+script = ExtResource( 17 )
+
+[node name="bottleblaster" parent="PlayerCamera/Hand" instance=ExtResource( 3 )]
+transform = Transform( 0.0140884, -0.0137333, 0.0358148, -0.032393, 0.0161739, 0.0189443, -0.0205426, -0.0349226, -0.00531039, 0.144668, -0.131937, -0.134142 )
+
+[node name="Sprite3D" type="Sprite3D" parent="PlayerCamera/Hand/bottleblaster"]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0277252, 6.26431, 0.023571 )
+texture = ExtResource( 16 )
+
+[node name="shoot-animation" type="AnimationPlayer" parent="PlayerCamera/Hand/bottleblaster"]
+anims/RESET = SubResource( 54 )
+anims/shoot = SubResource( 55 )
 
 [node name="type_writer" type="AudioStreamPlayer3D" parent="PlayerCamera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0038817, 0.0496056, -0.955405 )
@@ -419,6 +515,9 @@ stream = ExtResource( 10 )
 unit_db = 16.0
 
 [node name="FovTween" type="Tween" parent="PlayerCamera"]
+
+[node name="RayCastWeapon" type="RayCast" parent="PlayerCamera"]
+cast_to = Vector3( 0, 0, -10 )
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.30804, 0 )
@@ -464,4 +563,9 @@ unit_db = -9.1
 max_db = -14.15
 autoplay = true
 
-[node name="OmniLight" type="OmniLight" parent="."]
+[node name="player light" type="OmniLight" parent="."]
+
+[node name="bottle light" type="OmniLight" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 1.02727, 2.7764, -2.14983 )
+light_energy = 0.706
+omni_range = 0.116
