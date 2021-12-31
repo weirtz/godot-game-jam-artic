@@ -5,7 +5,9 @@ const MOVE_SPEED_FACTOR = 2.0
 var velocity = Vector3()
 var move_speed = 0.5
 var target_translation
+export var ball_drop_distance = 50
 export var ball_drop_progress = 0.0
+
 var rewind_secs = 0.0
 onready var secs_text_label: RichTextLabel = $RichTextLabelSecs
 onready var anim_ball_drop: AnimationPlayer = $AnimationPlayerBallDrop
@@ -17,7 +19,6 @@ func _ready():
 	$AnimationPlayerBallSpin.play("spin")
 	$AnimationPlayerBallDrop.play("Drop")
 	target_translation = Vector3(0.0,translation.y,0.0)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,8 +43,9 @@ func _process(delta):
 		#	$AudioStreamPlayer.play()
 
 func _set_ball_drop(ball_drop_progress: float):
-	var bottom_y = -8.5
-	var ball_y = 0.0 + ball_drop_progress * bottom_y
+	var top_y = ball_drop_distance
+	var bottom_y = ball_drop_distance - 1.5
+	var ball_y = top_y - ball_drop_progress * bottom_y
 	$Icosphere.translation.y = ball_y
 
 func move_ball_back_secs(secs: float):

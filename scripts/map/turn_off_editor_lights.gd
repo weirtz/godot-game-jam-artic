@@ -17,6 +17,5 @@ func spawn_enemy():
 	var ballPOS = get_tree().get_root().get_node("/root/Map/Ball/Icosphere")
 	var e = Enemy.instance()
 	var pos = ballPOS.global_transform.origin
-	e.global_transform.origin = pos
-	e.scale = Vector3(4.0, 4.0, 4.0)
 	add_child(e)
+	e.global_transform.origin = pos
