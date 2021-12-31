@@ -4058,7 +4058,7 @@ anims/TalkScratch = SubResource( 9 )
 anims/TalkTemplate = SubResource( 10 )
 
 [node name="ScienceSprite" type="Sprite" parent="."]
-position = Vector2( 315, 232 )
+position = Vector2( 180, 398 )
 texture = SubResource( 56 )
 
 [node name="ScienceViewport" type="Viewport" parent="."]
