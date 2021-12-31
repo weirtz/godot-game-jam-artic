@@ -429,6 +429,7 @@ __meta__ = {
 }
 
 [node name="console" type="Control" parent="GUI"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
@@ -623,6 +624,7 @@ __meta__ = {
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.088, 3.028, 0.120761 )
 
 [node name="Hand" type="Spatial" parent="PlayerCamera"]
+visible = false
 script = ExtResource( 17 )
 
 [node name="bottleblaster" type="Spatial" parent="PlayerCamera/Hand"]
