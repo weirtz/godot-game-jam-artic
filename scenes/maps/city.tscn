@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
@@ -36,10 +36,11 @@
 [ext_resource path="res://scripts/map/turn_off_editor_lights.gd" type="Script" id=34]
 [ext_resource path="res://scenes/item_scenes/weapon.tscn" type="PackedScene" id=35]
 [ext_resource path="res://scenes/NPC/science.tscn" type="PackedScene" id=36]
-[ext_resource path="res://scripts/map/cutscene.gd" type="Script" id=37]
 [ext_resource path="res://assets/sound/player/typewriter/typewriter_sound.wav" type="AudioStream" id=38]
-[ext_resource path="res://scripts/map/nextScene.gd" type="Script" id=39]
 [ext_resource path="res://scenes/NPC/groblen.tscn" type="PackedScene" id=40]
+
+[sub_resource type="ViewportTexture" id=87]
+viewport_path = NodePath("ScienceViewport")
 
 [sub_resource type="Animation" id=106]
 resource_name = "begining-cutscene"
@@ -2288,19 +2289,21 @@ uv1_scale = Vector3( -150, -150, 1 )
 [sub_resource type="ConcavePolygonShape" id=45]
 data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
 
-[sub_resource type="ViewportTexture" id=87]
-viewport_path = NodePath("ScienceViewport")
-
 [node name="Map" type="Spatial"]
 script = ExtResource( 34 )
 
+[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -15.2797, 0.672098, 24.4162 )
+
+[node name="Sprite3D" type="Sprite3D" parent="KinematicBody"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 3.16989, 5.68546, -21.8574 )
+texture = SubResource( 87 )
+
 [node name="Cameras" type="Spatial" parent="."]
-script = ExtResource( 37 )
 
 [node name="AnimationPlayerCameras" type="AnimationPlayer" parent="Cameras"]
 autoplay = "begining-cutscene"
 anims/begining-cutscene = SubResource( 106 )
-script = ExtResource( 39 )
 
 [node name="Camera1" type="Camera" parent="Cameras"]
 transform = Transform( -3.78552e-08, 0.5, 0.866025, 2.18557e-08, 0.866025, -0.5, -1, 0, -4.37114e-08, -24.5162, 25.0652, 27.1732 )
@@ -3039,13 +3042,6 @@ shape = SubResource( 45 )
 transform = Transform( -0.490554, 0, 0.871411, 0, 1, 0, -0.871411, 0, -0.490554, 32.7066, 0, 2.91881 )
 
 [node name="science" parent="." instance=ExtResource( 36 )]
-
-[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -15.2797, 0.672098, 24.4162 )
-
-[node name="Sprite3D" type="Sprite3D" parent="KinematicBody"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 3.16989, 5.68546, -21.8574 )
-texture = SubResource( 87 )
 
 [node name="StaminaItem" parent="." instance=ExtResource( 32 )]
 transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -17.5621, -0.126406, 33.5232 )
