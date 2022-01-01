@@ -1,7 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/models/grob/GroblenTexture.material" type="Material" id=1]
 [ext_resource path="res://scenes/NPC/groblen.gd" type="Script" id=2]
+[ext_resource path="res://scenes/NPC/GrobSpin.gd" type="Script" id=3]
+
+[sub_resource type="PhysicsMaterial" id=16]
+friction = 0.0
 
 [sub_resource type="ArrayMesh" id=7]
 resource_name = "groblen_Cube"
@@ -2103,13 +2107,21 @@ radius = 0.5
 radius = 0.75
 height = 1.0
 
-[node name="groblen" type="KinematicBody" groups=["enemy"]]
+[node name="groblen" type="RigidBody" groups=["enemy"]]
+physics_material_override = SubResource( 16 )
+gravity_scale = 0.5
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 2.0
 script = ExtResource( 2 )
 
 [node name="metarig" type="Spatial" parent="."]
 transform = Transform( -0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0, 0, 0 )
+script = ExtResource( 3 )
 
 [node name="Skeleton" type="Skeleton" parent="metarig"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 bones/0/name = "spine"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, -1.06581e-14, 2.38419e-07, 5.95187e-08, 0.968339, -0.249639, -2.3087e-07, 0.249639, 0.968339, 0, 0.561435, -0.0552 )
