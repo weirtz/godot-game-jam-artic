@@ -1,6 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/scene/Material.material" type="Material" id=1]
+[ext_resource path="res://assets/models/props/barrel/barrel_2.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 1 )
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "room2_Cylinder001"
@@ -11,7 +14,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 132,
-"material": ExtResource( 1 ),
+"material": SubResource( 17 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 84
@@ -34,18 +37,13 @@ gravity = Vector3( -0.055, 4.687, 0 )
 linear_accel = 2.75
 radial_accel = -0.51
 damping_random = 1.0
+scale = 1.48
 scale_curve = SubResource( 13 )
 hue_variation_random = 1.0
 
 [sub_resource type="SpatialMaterial" id=15]
-roughness = 0.0
-emission_enabled = true
-emission = Color( 0.952941, 0.494118, 0.0470588, 1 )
-emission_energy = 7.63
-emission_operator = 0
-emission_on_uv2 = false
-transmission_enabled = true
-transmission = Color( 0.666667, 0.25098, 0.25098, 1 )
+flags_unshaded = true
+albedo_color = Color( 0.980392, 0.745098, 0.0117647, 1 )
 
 [sub_resource type="CapsuleMesh" id=16]
 material = SubResource( 15 )
@@ -64,7 +62,7 @@ material/0 = null
 shape = SubResource( 10 )
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725869, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.448301, 0 )
 amount = 60
 lifetime = 0.34
 speed_scale = 0.3
