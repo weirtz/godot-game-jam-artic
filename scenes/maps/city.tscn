@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
@@ -41,9 +41,12 @@
 [ext_resource path="res://assets/models/props/fence/fence.tscn" type="PackedScene" id=39]
 [ext_resource path="res://assets/models/props/barrel/barrel.tscn" type="PackedScene" id=40]
 [ext_resource path="res://assets/models/props/barrel/barrel-nofire.tscn" type="PackedScene" id=41]
+[ext_resource path="res://scripts/map/nextScene.gd" type="Script" id=42]
 [ext_resource path="res://assets/models/props/lamps/Material_001.material" type="Material" id=43]
 [ext_resource path="res://assets/models/props/lamps/lamp-flicker.tscn" type="PackedScene" id=44]
 [ext_resource path="res://assets/models/props/lamps/lamp.material" type="Material" id=45]
+[ext_resource path="res://scripts/map/cutscene.gd" type="Script" id=46]
+[ext_resource path="res://scenes/maps/screen transition.gd" type="Script" id=47]
 
 [sub_resource type="ViewportTexture" id=87]
 viewport_path = NodePath("ScienceViewport")
@@ -2354,6 +2357,57 @@ albedo_color = Color( 0.443137, 0.443137, 0.443137, 1 )
 [sub_resource type="ConcavePolygonShape" id=137]
 data = PoolVector3Array( -3.7666, 6.2289, -0.1742, -3.6124, 6.3985, -0.1884, -3.7666, 6.3985, -0.2445, -3.7666, 6.2289, -0.1742, -3.6576, 6.2289, -0.1345, -3.6124, 6.3985, -0.1884, -3.7666, 6.1586, -0.0046, -3.6576, 6.2289, -0.1345, -3.7666, 6.2289, -0.1742, -3.6576, 6.2289, -0.1345, -3.5304, 6.3985, -0.0463, -3.6124, 6.3985, -0.1884, -3.6576, 6.2289, -0.1345, -3.5996, 6.2289, -0.0341, -3.5304, 6.3985, -0.0463, -3.7666, 6.1586, -0.0046, -3.5996, 6.2289, -0.0341, -3.6576, 6.2289, -0.1345, -3.5996, 6.2289, -0.0341, -3.5589, 6.3985, 0.1153, -3.5304, 6.3985, -0.0463, -3.5996, 6.2289, -0.0341, -3.6197, 6.2289, 0.0802, -3.5589, 6.3985, 0.1153, -3.7666, 6.1586, -0.0046, -3.6197, 6.2289, 0.0802, -3.5996, 6.2289, -0.0341, -3.6197, 6.2289, 0.0802, -3.6846, 6.3985, 0.2208, -3.5589, 6.3985, 0.1153, -3.6197, 6.2289, 0.0802, -3.7086, 6.2289, 0.1548, -3.6846, 6.3985, 0.2208, -3.7666, 6.1586, -0.0046, -3.7086, 6.2289, 0.1548, -3.6197, 6.2289, 0.0802, -3.7666, 6.1586, -0.0046, -3.8247, 6.2289, 0.1548, -3.7086, 6.2289, 0.1548, -3.7086, 6.2289, 0.1548, -3.8487, 6.3985, 0.2208, -3.6846, 6.3985, 0.2208, -3.7086, 6.2289, 0.1548, -3.8247, 6.2289, 0.1548, -3.8487, 6.3985, 0.2208, -3.7666, 6.1586, -0.0046, -3.9135, 6.2289, 0.0802, -3.8247, 6.2289, 0.1548, -3.8247, 6.2289, 0.1548, -3.9744, 6.3985, 0.1153, -3.8487, 6.3985, 0.2208, -3.8247, 6.2289, 0.1548, -3.9135, 6.2289, 0.0802, -3.9744, 6.3985, 0.1153, -3.7666, 6.1586, -0.0046, -3.9337, 6.2289, -0.0341, -3.9135, 6.2289, 0.0802, -3.9135, 6.2289, 0.0802, -4.0029, 6.3985, -0.0463, -3.9744, 6.3985, 0.1153, -3.9135, 6.2289, 0.0802, -3.9337, 6.2289, -0.0341, -4.0029, 6.3985, -0.0463, -3.7666, 6.1586, -0.0046, -3.8757, 6.2289, -0.1345, -3.9337, 6.2289, -0.0341, -3.9337, 6.2289, -0.0341, -3.9208, 6.3985, -0.1884, -4.0029, 6.3985, -0.0463, -3.9337, 6.2289, -0.0341, -3.8757, 6.2289, -0.1345, -3.9208, 6.3985, -0.1884, -3.7666, 6.1586, -0.0046, -3.7666, 6.2289, -0.1742, -3.8757, 6.2289, -0.1345, -3.8757, 6.2289, -0.1345, -3.7666, 6.3985, -0.2445, -3.9208, 6.3985, -0.1884, -3.8757, 6.2289, -0.1345, -3.7666, 6.2289, -0.1742, -3.7666, 6.3985, -0.2445, 0, -0.1218, -0.2302, 0.1994, 0.8267, -0.1151, 0, 0.8267, -0.2302, 0, -0.1218, -0.2302, 0.1994, -0.1218, -0.1151, 0.1994, 0.8267, -0.1151, 0.1994, -0.1218, -0.1151, 0.1994, 0.8267, 0.1151, 0.1994, 0.8267, -0.1151, 0.1994, -0.1218, -0.1151, 0.1994, -0.1218, 0.1151, 0.1994, 0.8267, 0.1151, 0.1994, -0.1218, 0.1151, 0, 0.8267, 0.2302, 0.1994, 0.8267, 0.1151, 0.1994, -0.1218, 0.1151, 0, -0.1218, 0.2302, 0, 0.8267, 0.2302, 0, -0.1218, 0.2302, -0.1994, 0.8267, 0.1151, 0, 0.8267, 0.2302, 0, -0.1218, 0.2302, -0.1994, -0.1218, 0.1151, -0.1994, 0.8267, 0.1151, 0, 0.8267, 0.2302, 0.1227, 1.1857, 0.0708, 0.1994, 0.8267, 0.1151, 0, 0.8267, 0.2302, 0, 1.1857, 0.1417, 0.1227, 1.1857, 0.0708, -0.1994, -0.1218, 0.1151, -0.1994, 0.8267, -0.1151, -0.1994, 0.8267, 0.1151, -0.1994, -0.1218, 0.1151, -0.1994, -0.1218, -0.1151, -0.1994, 0.8267, -0.1151, -0.1994, -0.1218, -0.1151, 0, 0.8267, -0.2302, -0.1994, 0.8267, -0.1151, -0.1994, -0.1218, -0.1151, 0, -0.1218, -0.2302, 0, 0.8267, -0.2302, -0.1994, -0.1218, -0.1151, 0.1994, -0.1218, -0.1151, 0, -0.1218, -0.2302, 0.1994, -0.1218, -0.1151, 0, -0.1218, 0.2302, 0.1994, -0.1218, 0.1151, 0, -0.1218, 0.2302, -0.1994, -0.1218, -0.1151, -0.1994, -0.1218, 0.1151, 0.1994, -0.1218, -0.1151, -0.1994, -0.1218, -0.1151, 0, -0.1218, 0.2302, -0.1227, 1.1857, 0.0708, 0, 5.9357, 0.1417, 0, 1.1857, 0.1417, -0.1227, 1.1857, 0.0708, -0.1227, 5.9357, 0.0708, 0, 5.9357, 0.1417, 0, 0.8267, -0.2302, -0.1227, 1.1857, -0.0708, -0.1994, 0.8267, -0.1151, 0, 0.8267, -0.2302, 0, 1.1857, -0.1417, -0.1227, 1.1857, -0.0708, -0.1994, 0.8267, 0.1151, 0, 1.1857, 0.1417, 0, 0.8267, 0.2302, -0.1994, 0.8267, 0.1151, -0.1227, 1.1857, 0.0708, 0, 1.1857, 0.1417, 0.1994, 0.8267, 0.1151, 0.1227, 1.1857, -0.0708, 0.1994, 0.8267, -0.1151, 0.1994, 0.8267, 0.1151, 0.1227, 1.1857, 0.0708, 0.1227, 1.1857, -0.0708, -0.1994, 0.8267, -0.1151, -0.1227, 1.1857, 0.0708, -0.1994, 0.8267, 0.1151, -0.1994, 0.8267, -0.1151, -0.1227, 1.1857, -0.0708, -0.1227, 1.1857, 0.0708, 0.1994, 0.8267, -0.1151, 0, 1.1857, -0.1417, 0, 0.8267, -0.2302, 0.1994, 0.8267, -0.1151, 0.1227, 1.1857, -0.0708, 0, 1.1857, -0.1417, 0, 5.9357, 0.1417, 0.1096, 6.3413, 0.0708, 0.1227, 5.9357, 0.0708, 0, 5.9357, 0.1417, 0, 6.2862, 0.1417, 0.1096, 6.3413, 0.0708, 0.1227, 1.1857, 0.0708, 0.1227, 5.9357, -0.0708, 0.1227, 1.1857, -0.0708, 0.1227, 1.1857, 0.0708, 0.1227, 5.9357, 0.0708, 0.1227, 5.9357, -0.0708, -0.1227, 1.1857, -0.0708, -0.1227, 5.9357, 0.0708, -0.1227, 1.1857, 0.0708, -0.1227, 1.1857, -0.0708, -0.1227, 5.9357, -0.0708, -0.1227, 5.9357, 0.0708, 0, 1.1857, 0.1417, 0.1227, 5.9357, 0.0708, 0.1227, 1.1857, 0.0708, 0, 1.1857, 0.1417, 0, 5.9357, 0.1417, 0.1227, 5.9357, 0.0708, 0.1227, 1.1857, -0.0708, 0, 5.9357, -0.1417, 0, 1.1857, -0.1417, 0.1227, 1.1857, -0.0708, 0.1227, 5.9357, -0.0708, 0, 5.9357, -0.1417, 0, 1.1857, -0.1417, -0.1227, 5.9357, -0.0708, -0.1227, 1.1857, -0.0708, 0, 1.1857, -0.1417, 0, 5.9357, -0.1417, -0.1227, 5.9357, -0.0708, -0.1096, 6.2311, -0.0708, -0.2875, 6.4019, 0.0708, -0.1096, 6.2311, 0.0708, -0.1096, 6.2311, -0.0708, -0.2875, 6.4019, -0.0708, -0.2875, 6.4019, 0.0708, 0.1227, 5.9357, -0.0708, 0, 6.2862, -0.1417, 0, 5.9357, -0.1417, 0.1227, 5.9357, -0.0708, 0.1096, 6.3413, -0.0708, 0, 6.2862, -0.1417, 0, 5.9357, -0.1417, -0.1096, 6.2311, -0.0708, -0.1227, 5.9357, -0.0708, 0, 5.9357, -0.1417, 0, 6.2862, -0.1417, -0.1096, 6.2311, -0.0708, -0.1227, 5.9357, 0.0708, 0, 6.2862, 0.1417, 0, 5.9357, 0.1417, -0.1227, 5.9357, 0.0708, -0.1096, 6.2311, 0.0708, 0, 6.2862, 0.1417, 0.1227, 5.9357, 0.0708, 0.1096, 6.3413, -0.0708, 0.1227, 5.9357, -0.0708, 0.1227, 5.9357, 0.0708, 0.1096, 6.3413, 0.0708, 0.1096, 6.3413, -0.0708, -0.1227, 5.9357, -0.0708, -0.1096, 6.2311, 0.0708, -0.1227, 5.9357, 0.0708, -0.1227, 5.9357, -0.0708, -0.1096, 6.2311, -0.0708, -0.1096, 6.2311, 0.0708, -0.2259, 6.508, -0.1417, -3.394, 6.3925, -0.0697, -0.2875, 6.4019, -0.0708, -0.2259, 6.508, -0.1417, -3.4388, 6.5063, -0.1412, -3.394, 6.3925, -0.0697, 0, 6.2862, 0.1417, -0.1643, 6.6141, 0.0708, 0.1096, 6.3413, 0.0708, 0, 6.2862, 0.1417, -0.2259, 6.508, 0.1417, -0.1643, 6.6141, 0.0708, 0.1096, 6.3413, -0.0708, -0.2259, 6.508, -0.1417, 0, 6.2862, -0.1417, 0.1096, 6.3413, -0.0708, -0.1643, 6.6141, -0.0708, -0.2259, 6.508, -0.1417, 0, 6.2862, -0.1417, -0.2875, 6.4019, -0.0708, -0.1096, 6.2311, -0.0708, 0, 6.2862, -0.1417, -0.2259, 6.508, -0.1417, -0.2875, 6.4019, -0.0708, -0.1096, 6.2311, 0.0708, -0.2259, 6.508, 0.1417, 0, 6.2862, 0.1417, -0.1096, 6.2311, 0.0708, -0.2875, 6.4019, 0.0708, -0.2259, 6.508, 0.1417, 0.1096, 6.3413, 0.0708, -0.1643, 6.6141, -0.0708, 0.1096, 6.3413, -0.0708, 0.1096, 6.3413, 0.0708, -0.1643, 6.6141, 0.0708, -0.1643, 6.6141, -0.0708, -3.4641, 6.6289, 0.0697, -3.4388, 6.5063, -0.1412, -3.4738, 6.6245, -0.0715, -3.4388, 6.5063, -0.1412, -3.3843, 6.3969, 0.0715, -3.394, 6.3925, -0.0697, -3.3843, 6.3969, 0.0715, -3.4641, 6.6289, 0.0697, -3.4193, 6.5152, 0.1412, -3.4388, 6.5063, -0.1412, -3.4641, 6.6289, 0.0697, -3.3843, 6.3969, 0.0715, -0.2875, 6.4019, 0.0708, -3.4193, 6.5152, 0.1412, -0.2259, 6.508, 0.1417, -0.2875, 6.4019, 0.0708, -3.3843, 6.3969, 0.0715, -3.4193, 6.5152, 0.1412, -0.1643, 6.6141, 0.0708, -3.4738, 6.6245, -0.0715, -0.1643, 6.6141, -0.0708, -0.1643, 6.6141, 0.0708, -3.4641, 6.6289, 0.0697, -3.4738, 6.6245, -0.0715, -0.2875, 6.4019, -0.0708, -3.3843, 6.3969, 0.0715, -0.2875, 6.4019, 0.0708, -0.2875, 6.4019, -0.0708, -3.394, 6.3925, -0.0697, -3.3843, 6.3969, 0.0715, -0.2259, 6.508, 0.1417, -3.4641, 6.6289, 0.0697, -0.1643, 6.6141, 0.0708, -0.2259, 6.508, 0.1417, -3.4193, 6.5152, 0.1412, -3.4641, 6.6289, 0.0697, -0.1643, 6.6141, -0.0708, -3.4388, 6.5063, -0.1412, -0.2259, 6.508, -0.1417, -0.1643, 6.6141, -0.0708, -3.4738, 6.6245, -0.0715, -3.4388, 6.5063, -0.1412, -3.7666, 6.3579, -0.4434, -3.5672, 6.6681, -0.2423, -3.7666, 6.6681, -0.3149, -3.7666, 6.3579, -0.4434, -3.4846, 6.3579, -0.3407, -3.5672, 6.6681, -0.2423, -3.7666, 6.6681, -0.3149, -3.5672, 6.6681, -0.2423, -3.7666, 6.7967, -0.0046, -3.5672, 6.6681, -0.2423, -3.4611, 6.6681, -0.0585, -3.7666, 6.7967, -0.0046, -3.4846, 6.3579, -0.3407, -3.4611, 6.6681, -0.0585, -3.5672, 6.6681, -0.2423, -3.4846, 6.3579, -0.3407, -3.3345, 6.3579, -0.0808, -3.4611, 6.6681, -0.0585, -3.4611, 6.6681, -0.0585, -3.4979, 6.6681, 0.1505, -3.7666, 6.7967, -0.0046, -3.3345, 6.3579, -0.0808, -3.4979, 6.6681, 0.1505, -3.4611, 6.6681, -0.0585, -3.3345, 6.3579, -0.0808, -3.3866, 6.3579, 0.2148, -3.4979, 6.6681, 0.1505, -3.3866, 6.3579, 0.2148, -3.6605, 6.6681, 0.287, -3.4979, 6.6681, 0.1505, -3.3866, 6.3579, 0.2148, -3.6166, 6.3579, 0.4077, -3.6605, 6.6681, 0.287, -3.4979, 6.6681, 0.1505, -3.6605, 6.6681, 0.287, -3.7666, 6.7967, -0.0046, -3.6166, 6.3579, 0.4077, -3.8728, 6.6681, 0.287, -3.6605, 6.6681, 0.287, -3.6166, 6.3579, 0.4077, -3.9167, 6.3579, 0.4077, -3.8728, 6.6681, 0.287, -3.6166, 6.3579, 0.4077, -3.8487, 6.3985, 0.2208, -3.9167, 6.3579, 0.4077, -3.6166, 6.3579, 0.4077, -3.6846, 6.3985, 0.2208, -3.8487, 6.3985, 0.2208, -3.6605, 6.6681, 0.287, -3.8728, 6.6681, 0.287, -3.7666, 6.7967, -0.0046, -4.1466, 6.3579, 0.2148, -4.0029, 6.3985, -0.0463, -4.1988, 6.3579, -0.0808, -4.1466, 6.3579, 0.2148, -3.9744, 6.3985, 0.1153, -4.0029, 6.3985, -0.0463, -3.9167, 6.3579, 0.4077, -4.0353, 6.6681, 0.1505, -3.8728, 6.6681, 0.287, -3.9167, 6.3579, 0.4077, -4.1466, 6.3579, 0.2148, -4.0353, 6.6681, 0.1505, -3.3866, 6.3579, 0.2148, -3.6846, 6.3985, 0.2208, -3.6166, 6.3579, 0.4077, -3.3866, 6.3579, 0.2148, -3.5589, 6.3985, 0.1153, -3.6846, 6.3985, 0.2208, -3.8728, 6.6681, 0.287, -4.0353, 6.6681, 0.1505, -3.7666, 6.7967, -0.0046, -3.3345, 6.3579, -0.0808, -3.5589, 6.3985, 0.1153, -3.3866, 6.3579, 0.2148, -3.3345, 6.3579, -0.0808, -3.5304, 6.3985, -0.0463, -3.5589, 6.3985, 0.1153, -4.1466, 6.3579, 0.2148, -4.0722, 6.6681, -0.0585, -4.0353, 6.6681, 0.1505, -4.1466, 6.3579, 0.2148, -4.1988, 6.3579, -0.0808, -4.0722, 6.6681, -0.0585, -3.7666, 6.3579, -0.4434, -3.6124, 6.3985, -0.1884, -3.4846, 6.3579, -0.3407, -3.7666, 6.3579, -0.4434, -3.7666, 6.3985, -0.2445, -3.6124, 6.3985, -0.1884, -4.0353, 6.6681, 0.1505, -4.0722, 6.6681, -0.0585, -3.7666, 6.7967, -0.0046, -3.9167, 6.3579, 0.4077, -3.9744, 6.3985, 0.1153, -4.1466, 6.3579, 0.2148, -3.9167, 6.3579, 0.4077, -3.8487, 6.3985, 0.2208, -3.9744, 6.3985, 0.1153, -4.1988, 6.3579, -0.0808, -3.9661, 6.6681, -0.2423, -4.0722, 6.6681, -0.0585, -4.1988, 6.3579, -0.0808, -4.0487, 6.3579, -0.3407, -3.9661, 6.6681, -0.2423, -4.0487, 6.3579, -0.3407, -3.7666, 6.3985, -0.2445, -3.7666, 6.3579, -0.4434, -4.0487, 6.3579, -0.3407, -3.9208, 6.3985, -0.1884, -3.7666, 6.3985, -0.2445, -4.0722, 6.6681, -0.0585, -3.9661, 6.6681, -0.2423, -3.7666, 6.7967, -0.0046, -3.9661, 6.6681, -0.2423, -3.7666, 6.6681, -0.3149, -3.7666, 6.7967, -0.0046, -4.1988, 6.3579, -0.0808, -3.9208, 6.3985, -0.1884, -4.0487, 6.3579, -0.3407, -4.1988, 6.3579, -0.0808, -4.0029, 6.3985, -0.0463, -3.9208, 6.3985, -0.1884, -4.0487, 6.3579, -0.3407, -3.7666, 6.6681, -0.3149, -3.9661, 6.6681, -0.2423, -4.0487, 6.3579, -0.3407, -3.7666, 6.3579, -0.4434, -3.7666, 6.6681, -0.3149, -3.4846, 6.3579, -0.3407, -3.5304, 6.3985, -0.0463, -3.3345, 6.3579, -0.0808, -3.4846, 6.3579, -0.3407, -3.6124, 6.3985, -0.1884, -3.5304, 6.3985, -0.0463 )
 
+[sub_resource type="Shader" id=142]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float circle_size : hint_range(0.0, 1.05);
+uniform float screen_width;
+uniform float screen_height;
+
+void fragment() {
+	float ratio = screen_width / screen_height;
+	float dist = distance(vec2(0.5, 0.5), vec2(mix(0.5, UV.x, ratio), UV.y));
+	COLOR.a = step(circle_size, dist);
+}"
+
+[sub_resource type="ShaderMaterial" id=143]
+shader = SubResource( 142 )
+shader_param/circle_size = 0.0
+shader_param/screen_width = 640.0
+shader_param/screen_height = 480.0
+
+[sub_resource type="Animation" id=144]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=145]
+resource_name = "screen-intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/circle_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.05 ]
+}
+
 [node name="Map" type="Spatial"]
 script = ExtResource( 34 )
 
@@ -2365,15 +2419,17 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 3.16989, 5.68546, -21.8574 
 texture = SubResource( 87 )
 
 [node name="Cameras" type="Spatial" parent="."]
+script = ExtResource( 46 )
 
 [node name="AnimationPlayerCameras" type="AnimationPlayer" parent="Cameras"]
-autoplay = "begining-cutscene"
 anims/begining-cutscene = SubResource( 106 )
+script = ExtResource( 42 )
 
 [node name="Camera1" type="Camera" parent="Cameras"]
 transform = Transform( -3.78552e-08, 0.5, 0.866025, 2.18557e-08, 0.866025, -0.5, -1, 0, -4.37114e-08, -24.5162, 25.0652, 27.1732 )
 
 [node name="screen_text" type="Control" parent="Cameras/Camera1"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -62.0
@@ -2393,7 +2449,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cameras/Camera1/screen_text"]
-autoplay = "typewriter"
 anims/RESET = SubResource( 107 )
 anims/typewriter = SubResource( 108 )
 
@@ -2403,6 +2458,8 @@ margin_top = -35.0
 margin_right = 765.0
 margin_bottom = 75.0
 custom_fonts/normal_font = SubResource( 109 )
+visible_characters = 0
+percent_visible = 0.125
 text = "Hello there. My name is Quilliard T. Science. I'm required by my agent to inform you of an issue you will soon be facing...
 "
 fit_content_height = true
@@ -2412,6 +2469,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera1/screen_text"]
+position = Vector2( 322, -391 )
 stream = ExtResource( 38 )
 
 [node name="Camera2" type="Camera" parent="Cameras"]
@@ -2482,6 +2540,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera2/screen_text"]
+position = Vector2( 325, -394 )
 stream = ExtResource( 38 )
 
 [node name="Camera3" type="Camera" parent="Cameras"]
@@ -2554,10 +2613,12 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera3/screen_text"]
+position = Vector2( 320, -385 )
 stream = ExtResource( 38 )
 
 [node name="Camera4" type="Camera" parent="Cameras"]
 transform = Transform( -0.0941259, 0, 0.99556, 0, 1, 0, -0.99556, 0, -0.0941259, -41.2378, 48.0271, 28.2087 )
+visible = false
 far = 416.2
 
 [node name="screen_text" type="Control" parent="Cameras/Camera4"]
@@ -2601,6 +2662,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera4/screen_text"]
+position = Vector2( 331, -389 )
 stream = ExtResource( 38 )
 
 [node name="Camera5" type="Camera" parent="Cameras"]
@@ -2649,6 +2711,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera5/screen_text"]
+position = Vector2( 346, -401 )
 stream = ExtResource( 38 )
 
 [node name="Camera6" type="Camera" parent="Cameras"]
@@ -2698,6 +2761,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera6/screen_text"]
+position = Vector2( 338, -382 )
 stream = ExtResource( 38 )
 
 [node name="Ball" type="KinematicBody" parent="."]
@@ -3104,21 +3168,10 @@ material/0 = SubResource( 60 )
 shape = SubResource( 45 )
 
 [node name="science" parent="." instance=ExtResource( 36 )]
+visible = false
 
 [node name="StaminaItem" parent="." instance=ExtResource( 32 )]
 transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -17.5621, -0.126406, 33.5232 )
-
-[node name="bottleblaster" parent="." instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 24.2119 )
-
-[node name="bottleblaster2" parent="." instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 34.3399 )
-
-[node name="bottleblaster3" parent="." instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 23.2929 )
-
-[node name="bottleblaster4" parent="." instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 22.3444 )
 
 [node name="timepieces" type="Spatial" parent="."]
 
@@ -3377,6 +3430,20 @@ transform = Transform( 0.212359, 4.41151e-09, 0.0504618, 0, -0.218272, 1.90819e-
 
 [node name="barrel8" parent="barrels" instance=ExtResource( 41 )]
 transform = Transform( 0.20891, -5.52868e-09, -0.0632407, 0, -0.218272, 1.90819e-08, -0.0632407, -1.82635e-08, -0.20891, -45.132, 0.392033, 41.2632 )
+
+[node name="bottles" type="Spatial" parent="."]
+
+[node name="bottleblaster" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 24.2119 )
+
+[node name="bottleblaster2" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 34.3399 )
+
+[node name="bottleblaster3" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 23.2929 )
+
+[node name="bottleblaster4" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 22.3444 )
 
 [node name="lamps" type="Spatial" parent="."]
 
@@ -4255,6 +4322,28 @@ transform = Transform( -2.9479e-08, 0, 0.674402, 0, 0.674402, 0, -0.674402, 0, -
 [node name="lamppost4" parent="lamps" instance=ExtResource( 44 )]
 transform = Transform( -0.674402, 0, -5.89581e-08, 0, 0.674402, 0, 5.89581e-08, 0, -0.674402, -24.228, -0.126406, 63.4146 )
 
+[node name="screen transition" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="screen transition"]
+material = SubResource( 143 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 47 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer-Screen-transition" type="AnimationPlayer" parent="screen transition"]
+autoplay = "screen-intro"
+anims/RESET = SubResource( 144 )
+anims/screen-intro = SubResource( 145 )
+
 [connection signal="animation_finished" from="Cameras/Camera1/screen_text/AnimationPlayer" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera2/screen_text/AnimationPlayer2-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer21_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera2/screen_text/AnimationPlayer2-2" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer22_animation_finished"]
@@ -4263,3 +4352,4 @@ transform = Transform( -0.674402, 0, -5.89581e-08, 0, 0.674402, 0, 5.89581e-08, 
 [connection signal="animation_finished" from="Cameras/Camera4/screen_text/AnimationPlayer4-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer41_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera5/screen_text/AnimationPlayer5-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer51_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera6/screen_text/AnimationPlayer6-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer61_animation_finished"]
+[connection signal="animation_finished" from="screen transition/AnimationPlayer-Screen-transition" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayerScreentransition_animation_finished"]

@@ -1,6 +1,13 @@
 extends AnimationPlayer
 
-
+#screen transition
+func _on_AnimationPlayerScreentransition_animation_finished(anim_name):
+	self.play("begining-cutscene")
+	get_tree().get_root().get_node("/root/Map/science").visible = true
+	$"../Camera1/screen_text/AnimationPlayer".play("typewriter")
+	$"../Camera1/screen_text".visible = true
+	
+	
 #scene1
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$"../Camera2/screen_text/AnimationPlayer2-1".play("typewriter")
@@ -37,5 +44,7 @@ func _on_AnimationPlayer51_animation_finished(anim_name):
 
 func _on_AnimationPlayer61_animation_finished(anim_name):
 	$"../Camera6/screen_text".visible = false
+
+
 
 

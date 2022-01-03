@@ -615,11 +615,10 @@ unit_db = -16.335
 pitch_scale = 0.67
 max_distance = 10.0
 
-[node name="atmosphere" type="AudioStreamPlayer3D" parent="Audio"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.264788, -1.19209e-06, -0.0169277 )
+[node name="atmosphere" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2( 314, 44 )
 stream = ExtResource( 8 )
-unit_db = -9.1
-max_db = -14.15
+volume_db = -7.256
 autoplay = true
 
 [node name="player light" type="OmniLight" parent="."]

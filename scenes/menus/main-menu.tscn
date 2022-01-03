@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/menus/main-menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/maps/screen transition.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 61
@@ -10,7 +11,57 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[node name="main-menu" type="MarginContainer"]
+[sub_resource type="Shader" id=142]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float circle_size : hint_range(0.0, 1.05);
+uniform float screen_width;
+uniform float screen_height;
+
+void fragment() {
+	float ratio = screen_width / screen_height;
+	float dist = distance(vec2(0.5, 0.5), vec2(mix(0.5, UV.x, ratio), UV.y));
+	COLOR.a = step(circle_size, dist);
+}"
+
+[sub_resource type="ShaderMaterial" id=143]
+shader = SubResource( 142 )
+shader_param/circle_size = 1.05
+shader_param/screen_width = 640.0
+shader_param/screen_height = 480.0
+
+[sub_resource type="Animation" id=144]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("screen-transition:material:shader_param/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.05 ]
+}
+
+[sub_resource type="Animation" id=145]
+resource_name = "trans"
+tracks/0/type = "value"
+tracks/0/path = NodePath("screen-transition:material:shader_param/circle_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.05, 0.0 ]
+}
+
+[node name="main-menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -19,14 +70,14 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 640.0
-margin_bottom = 480.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 140.0
-margin_top = 130.0
+margin_top = 136.0
 margin_right = 500.0
-margin_bottom = 349.0
+margin_bottom = 343.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 360.0
@@ -42,12 +93,12 @@ text = "Game Title
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 139.0
 margin_right = 360.0
-margin_bottom = 219.0
+margin_bottom = 207.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 105.0
-margin_right = 255.0
-margin_bottom = 80.0
+margin_left = 138.0
+margin_right = 221.0
+margin_bottom = 68.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 visible = false
@@ -55,70 +106,88 @@ margin_right = 150.0
 margin_bottom = 24.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
-margin_left = 24.0
-margin_right = 125.0
+visible = false
+margin_left = 9.0
+margin_right = 140.0
 margin_bottom = 24.0
 
 [node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+visible = false
 margin_right = 101.0
 margin_bottom = 24.0
 custom_fonts/font = SubResource( 2 )
 text = "play game"
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 24.0
+margin_right = 83.0
+margin_bottom = 20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
-margin_right = 150.0
-margin_bottom = 24.0
+margin_right = 83.0
+margin_bottom = 20.0
 
-[node name="New Game" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 24.0
-focus_mode = 2
-custom_fonts/font = SubResource( 2 )
-text = "start new game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 20.0
+text = "Start Game"
 
 [node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 28.0
-margin_right = 150.0
-margin_bottom = 52.0
+margin_top = 24.0
+margin_right = 83.0
+margin_bottom = 44.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
-margin_left = 29.0
-margin_right = 121.0
-margin_bottom = 24.0
+margin_left = 10.0
+margin_right = 73.0
+margin_bottom = 20.0
 
-[node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_right = 92.0
-margin_bottom = 24.0
-focus_mode = 2
-custom_fonts/font = SubResource( 2 )
-text = "settings"
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+margin_right = 63.0
+margin_bottom = 20.0
+text = "Settings"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 56.0
-margin_right = 150.0
-margin_bottom = 80.0
+margin_top = 48.0
+margin_right = 83.0
+margin_bottom = 68.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_left = 49.0
-margin_right = 101.0
-margin_bottom = 24.0
+margin_left = 21.0
+margin_right = 61.0
+margin_bottom = 20.0
 
-[node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_right = 52.0
-margin_bottom = 24.0
-focus_mode = 2
-custom_fonts/font = SubResource( 2 )
-text = "quit"
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 20.0
+text = "Quit"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+margin_right = 640.0
+margin_bottom = 480.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="screen-transition" type="ColorRect" parent="Control"]
+material = SubResource( 143 )
+margin_right = 640.0
+margin_bottom = 480.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transition" type="AnimationPlayer" parent="Control"]
+anims/RESET = SubResource( 144 )
+anims/trans = SubResource( 145 )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/New Game" to="." method="_on_New_Game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer/Settings" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Quit" to="." method="_on_Button_pressed"]
+[connection signal="animation_finished" from="Control/transition" to="." method="_on_transition_animation_finished"]

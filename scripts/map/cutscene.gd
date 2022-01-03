@@ -1,7 +1,7 @@
 extends Spatial
 
 func _ready():
-	pass # Replace with function body.
+	$Camera1.current = true
 
 func cameraSelect(var cameraNum):
 	match cameraNum:

@@ -1,16 +1,13 @@
-extends MarginContainer
+extends Control
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# resume game button
-func _on_MenuButton_pressed():
+func _on_transition_animation_finished(anim_name):
 	get_tree().change_scene("res://scenes/maps/city.tscn")
 
-# new game button
-func _on_New_Game_pressed():
+func _on_Play_pressed():
 	var dir = Directory.new()
 	if dir != null:
 		dir.remove("user://inventory.tres")
-		get_tree().change_scene("res://scenes/maps/city.tscn")
+		$Control.visible = true
+		$"Control/transition".play("trans")
+		
+
