@@ -60,6 +60,7 @@ config/icon="res://icon.png"
 
 ItemDatabase="*res://scripts/manager/ItemDatabase.gd"
 GameManager="*res://scripts/manager/game_manager.gd"
+Windowsize="*res://scripts/manager/windowsize.gd"
 
 [display]
 

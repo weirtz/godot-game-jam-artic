@@ -5,12 +5,6 @@ var mouse_toggle = true
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	#set game window
-	OS.window_size = Vector2(1280,720)
-	var screen_size = OS.get_screen_size()
-	var window_size = OS.get_window_size()
-	OS.set_window_position(screen_size*0.5 - window_size*0.5)
-	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
 		mouse_toggle()
