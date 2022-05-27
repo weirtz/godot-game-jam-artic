@@ -2880,7 +2880,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1325, -2.05645, 28.3677 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
-ball_drop_progress = 0.0266667
 
 [node name="bigboom" type="AudioStreamPlayer" parent="Ball"]
 stream = ExtResource( 58 )

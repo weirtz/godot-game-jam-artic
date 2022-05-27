@@ -72,10 +72,10 @@ func _process(delta):
 				$"../KinematicBody/Audio/lose".play()
 			get_tree().get_root().get_node("Map").timer_main_menu()
 
-#remove enemy instances and return to main menu
+#remove enemy instances and return to main menu/end screen
 func gotoMainMenu():
 	get_tree().call_group("enemy", "queue_free")
-	get_tree().change_scene("res://scenes/menus/main-menu.tscn")
+	get_tree().change_scene("res://scenes/menus/end.tscn")
 
 #change wether the ball can move towards the player or not.
 func setMoveToPlayer(statement: bool):
