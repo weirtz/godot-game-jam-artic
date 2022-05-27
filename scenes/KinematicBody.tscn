@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/player/player_main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/console.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sound/player/walking/walking.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sound/atmosphere/atmosphere.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/sound/game-win-lose/effect.wav" type="AudioStream" id=10]
 [ext_resource path="res://scripts/player/stamina.gd" type="Script" id=11]
 [ext_resource path="res://scripts/player/console_inventory.gd" type="Script" id=12]
 [ext_resource path="res://scripts/player/main-controls.gd" type="Script" id=13]
@@ -19,6 +20,7 @@
 [ext_resource path="res://assets/sound/weapon/pop.wav" type="AudioStream" id=18]
 [ext_resource path="res://assets/sound/weapon/shake.wav" type="AudioStream" id=19]
 [ext_resource path="res://scripts/player/ammo-ui.gd" type="Script" id=20]
+[ext_resource path="res://assets/sound/game-win-lose/lose.wav" type="AudioStream" id=21]
 
 [sub_resource type="PanoramaSky" id=53]
 panorama = ExtResource( 14 )
@@ -29,21 +31,43 @@ background_sky = SubResource( 53 )
 background_energy = 0.7
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 1.06
+fog_enabled = true
+fog_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+fog_depth_begin = 5.0
+fog_depth_end = 75.0
+fog_depth_curve = 10.1965
+fog_transmit_enabled = true
+fog_transmit_curve = 1.10957
+fog_height_min = -10.0
+fog_height_max = -9.0
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_radius = 4.62
+ssao_intensity = 4.62
+ssao_quality = 2
 glow_enabled = true
 glow_intensity = 0.23
 glow_strength = 1.29
 glow_blend_mode = 1
+glow_bicubic_upscale = true
 glow_high_quality = true
 
 [sub_resource type="DynamicFontData" id=57]
 font_path = "res://assets/font/pixel.ttf"
 
-[sub_resource type="DynamicFont" id=46]
-size = 20
+[sub_resource type="DynamicFont" id=59]
+size = 15
 font_data = SubResource( 57 )
 
+[sub_resource type="Theme" id=60]
+default_font = SubResource( 59 )
+
+[sub_resource type="DynamicFont" id=45]
+size = 12
+font_data = ExtResource( 9 )
+
 [sub_resource type="Theme" id=47]
-default_font = SubResource( 46 )
+default_font = SubResource( 59 )
 
 [sub_resource type="Animation" id=27]
 length = 0.001
@@ -75,10 +99,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ false, true, false ]
 }
-
-[sub_resource type="DynamicFont" id=45]
-size = 12
-font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=23]
 font_data = ExtResource( 9 )
@@ -286,6 +306,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="time-pieces-container" type="Panel" parent="GUI"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -137.0
+margin_right = 1.0
+margin_bottom = 19.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="GUI/time-pieces-container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 98.0
+margin_right = 8.0
+theme = SubResource( 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time-pieces" type="RichTextLabel" parent="GUI/time-pieces-container"]
+margin_left = 8.0
+margin_top = 2.0
+margin_right = 91.0
+margin_bottom = 17.0
+custom_fonts/normal_font = SubResource( 45 )
+text = "Time Pieces:"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Ammo" type="Control" parent="GUI"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -324,14 +377,14 @@ __meta__ = {
 }
 
 [node name="stamina" type="ProgressBar" parent="GUI/Stamina"]
-anchor_left = 0.5
+anchor_left = 0.211
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.211
 anchor_bottom = 0.5
-margin_left = -127.0
-margin_top = -9.0
-margin_right = 127.0
-margin_bottom = 9.0
+margin_left = -103.04
+margin_top = -8.5
+margin_right = 61.96
+margin_bottom = 9.5
 value = 50.0
 percent_visible = false
 script = ExtResource( 11 )
@@ -538,6 +591,7 @@ __meta__ = {
 
 [node name="PlayerCamera" type="Camera" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.088, 3.028, 0.120761 )
+visible = false
 cull_mask = 1047551
 
 [node name="Hand" type="Spatial" parent="PlayerCamera"]
@@ -611,7 +665,7 @@ stream = ExtResource( 6 )
 [node name="walking" type="AudioStreamPlayer3D" parent="Audio"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 stream = ExtResource( 7 )
-unit_db = -16.335
+unit_db = 6.32
 pitch_scale = 0.67
 max_distance = 10.0
 
@@ -620,6 +674,12 @@ position = Vector2( 314, 44 )
 stream = ExtResource( 8 )
 volume_db = -7.256
 autoplay = true
+
+[node name="lose" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 21 )
+
+[node name="lose-effect" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 10 )
 
 [node name="player light" type="OmniLight" parent="."]
 

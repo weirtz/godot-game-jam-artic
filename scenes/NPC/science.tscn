@@ -4078,3 +4078,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21486, 0.121841, 0.764724 )
 layers = 1024
 light_energy = 1.426
 light_cull_mask = 4293919744
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10017, 0.121841, 0.435489 )
+layers = 1024
+light_energy = 1.426
+light_cull_mask = 4293919744
+
+[node name="OmniLight3" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0382385, 3.03575, 0.227493 )
+layers = 1024
+light_energy = 1.426
+light_cull_mask = 4293919744

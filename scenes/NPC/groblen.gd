@@ -65,7 +65,12 @@ func _on_Area_body_entered(body):
 		animation_player.play("NoseAttack")
 
 
+
 func _attack_player():
 	var player = get_tree().get_root().get_node("Map/KinematicBody")
 	if (area.overlaps_body(player)):
 		player.stunned_by_groblen()
+
+
+func _on_Area_body_exited(body):
+	pass

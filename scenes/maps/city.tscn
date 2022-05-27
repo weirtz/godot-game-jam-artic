@@ -1,10 +1,10 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=187 format=2]
 
 [ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/textures/urban/WINDOW.png" type="Texture" id=3]
+[ext_resource path="res://shaders/ball_material.tres" type="Material" id=3]
 [ext_resource path="res://assets/sound/countdown/countdown-cheer.wav" type="AudioStream" id=4]
-[ext_resource path="res://assets/meshes/Material_001.material" type="Material" id=5]
+[ext_resource path="res://shaders/ball_material_shaders.tres" type="Material" id=5]
 [ext_resource path="res://scenes/maps/Ball.gd" type="Script" id=6]
 [ext_resource path="res://assets/models/maps/top room.material" type="Material" id=7]
 [ext_resource path="res://assets/models/maps/tv.material" type="Material" id=8]
@@ -47,6 +47,16 @@
 [ext_resource path="res://assets/models/props/lamps/lamp.material" type="Material" id=45]
 [ext_resource path="res://scripts/map/cutscene.gd" type="Script" id=46]
 [ext_resource path="res://scenes/maps/screen transition.gd" type="Script" id=47]
+[ext_resource path="res://assets/textures/screens/s1-2.png" type="Texture" id=48]
+[ext_resource path="res://assets/textures/screens/s2-3.png" type="Texture" id=49]
+[ext_resource path="res://assets/textures/screens/s2-2.png" type="Texture" id=50]
+[ext_resource path="res://assets/textures/screens/s1-1.png" type="Texture" id=51]
+[ext_resource path="res://assets/textures/screens/s2-1.png" type="Texture" id=52]
+[ext_resource path="res://assets/sound/game-win-lose/win/win-effect.wav" type="AudioStream" id=54]
+[ext_resource path="res://assets/sound/game-win-lose/win/win-voice.wav" type="AudioStream" id=55]
+[ext_resource path="res://assets/sound/game-win-lose/win/modern.wav" type="AudioStream" id=56]
+[ext_resource path="res://assets/sound/game-win-lose/win/constant-rumble.wav" type="AudioStream" id=57]
+[ext_resource path="res://assets/sound/game-win-lose/win/bigboom_01.wav" type="AudioStream" id=58]
 
 [sub_resource type="Animation" id=106]
 resource_name = "begining-cutscene"
@@ -58,7 +68,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.4, 7, 21, 35.1, 41.1, 47, 54.1 ),
+"times": PoolRealArray( 0, 7, 21, 35.1, 41.1, 47, 54.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1 ],
@@ -103,36 +113,24 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0.00151912, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath("../../../science")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../science")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.00182566 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -176,99 +174,6 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.00462531, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.02171 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("../../../science")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.00442372 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 2 ],
-"method": "_setAnimation"
-} ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("RichTextLabel:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=112]
-length = 5.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("RichTextLabel2:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=113]
-resource_name = "typewriter"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("../../PlayerCamera/type_writer:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/1/type = "value"
 tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -302,17 +207,86 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.00442372 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ 4 ],
+"args": [ 2 ],
 "method": "_setAnimation"
 } ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RichTextLabel2:percent_visible")
+tracks/4/path = NodePath("RichTextLabel:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=112]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel2:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=113]
+resource_name = "typewriter"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00462531, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.02171 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../science")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.00442372 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 4 ],
+"method": "_setAnimation"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RichTextLabel2:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -350,99 +324,6 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.00462531, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.02171 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("../../../science")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.00442372 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 3 ],
-"method": "_setAnimation"
-} ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("RichTextLabel:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=116]
-length = 7.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("RichTextLabel2:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=117]
-resource_name = "typewriter"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("../../PlayerCamera/type_writer:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/1/type = "value"
 tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -476,17 +357,86 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.00442372 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ 5 ],
+"args": [ 3 ],
 "method": "_setAnimation"
 } ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RichTextLabel2:percent_visible")
+tracks/4/path = NodePath("RichTextLabel:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=116]
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel2:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=117]
+resource_name = "typewriter"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00462531, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.02171 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../science")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.00442372 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 5 ],
+"method": "_setAnimation"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RichTextLabel2:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -524,48 +474,36 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0.00462531, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.02171 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/4/type = "method"
-tracks/4/path = NodePath("../../../science")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/path = NodePath("../../../science")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0.00442372 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -573,13 +511,13 @@ tracks/4/keys = {
 "method": "_setAnimation"
 } ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("RichTextLabel:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -617,48 +555,36 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0.00462531, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.02171 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/4/type = "method"
-tracks/4/path = NodePath("../../../science")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/path = NodePath("../../../science")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0.00442372 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -666,13 +592,13 @@ tracks/4/keys = {
 "method": "_setAnimation"
 } ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("RichTextLabel:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -710,63 +636,51 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../PlayerCamera/type_writer:playing")
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0.00462531, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:visible")
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.02171, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../../../science")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.02171 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("../../../science")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.00442372 ),
+"times": PoolRealArray( 4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 7 ],
 "method": "_setAnimation"
 } ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("RichTextLabel:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 7 ),
+tracks/4/type = "value"
+tracks/4/path = NodePath("RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -774,7 +688,17 @@ tracks/5/keys = {
 
 [sub_resource type="SphereShape" id=39]
 
-[sub_resource type="ArrayMesh" id=37]
+[sub_resource type="SpatialMaterial" id=173]
+flags_unshaded = true
+
+[sub_resource type="SphereMesh" id=172]
+material = SubResource( 173 )
+radius = 0.1
+height = 0.2
+radial_segments = 5
+rings = 5
+
+[sub_resource type="ArrayMesh" id=164]
 surfaces/0 = {
 "aabb": AABB( -0.951058, -1, -1, 1.90212, 2, 2 ),
 "array_data": PoolByteArray( 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 128, 9, 168, 161, 193, 139, 58, 0, 60, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 62, 9, 168, 161, 193, 46, 58, 94, 59, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 62, 9, 168, 161, 193, 232, 58, 94, 59, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 63, 54, 205, 234, 186, 209, 57, 189, 58, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 62, 54, 205, 234, 186, 116, 57, 94, 59, 15, 196, 89, 63, 161, 150, 6, 191, 0, 0, 0, 128, 54, 205, 234, 186, 23, 57, 189, 58, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 128, 232, 171, 130, 156, 209, 45, 0, 60, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 62, 232, 171, 130, 156, 209, 41, 94, 59, 58, 150, 6, 191, 79, 196, 89, 191, 0, 0, 0, 128, 232, 171, 130, 156, 93, 48, 94, 59, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 128, 215, 154, 126, 230, 93, 52, 0, 60, 58, 150, 6, 191, 79, 196, 89, 191, 0, 0, 0, 128, 215, 154, 126, 230, 69, 51, 94, 59, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 190, 215, 154, 126, 230, 23, 53, 94, 59, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 128, 38, 139, 95, 193, 69, 55, 0, 60, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 190, 38, 139, 95, 193, 139, 54, 94, 59, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 190, 38, 139, 95, 193, 255, 55, 94, 59, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 63, 76, 229, 234, 186, 209, 57, 189, 58, 15, 196, 89, 63, 161, 150, 6, 191, 0, 0, 0, 128, 76, 229, 234, 186, 23, 57, 189, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 62, 76, 229, 234, 186, 116, 57, 28, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 63, 2, 224, 153, 185, 69, 59, 189, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 63, 2, 224, 153, 185, 139, 58, 189, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 63, 2, 224, 153, 185, 232, 58, 28, 58, 30, 249, 100, 191, 114, 249, 228, 190, 0, 0, 0, 128, 183, 229, 142, 146, 209, 49, 189, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 62, 183, 229, 142, 146, 209, 45, 189, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 62, 183, 229, 142, 146, 93, 48, 28, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 191, 155, 174, 115, 161, 209, 53, 189, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 190, 155, 174, 115, 161, 93, 52, 189, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 191, 155, 174, 115, 161, 23, 53, 28, 58, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 191, 101, 171, 71, 187, 93, 56, 189, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 191, 101, 171, 71, 187, 69, 55, 189, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 191, 101, 171, 71, 187, 255, 55, 28, 58, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 63, 67, 246, 203, 193, 209, 57, 189, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 62, 67, 246, 203, 193, 116, 57, 28, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 63, 67, 246, 203, 193, 46, 58, 28, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 63, 228, 245, 129, 177, 69, 59, 189, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 63, 228, 245, 129, 177, 232, 58, 28, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 63, 228, 245, 129, 177, 162, 59, 28, 58, 30, 249, 100, 191, 114, 249, 228, 190, 0, 0, 0, 128, 144, 242, 127, 129, 209, 49, 189, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 62, 144, 242, 127, 129, 93, 48, 28, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 190, 144, 242, 127, 129, 69, 51, 28, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 191, 141, 158, 127, 209, 209, 53, 189, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 191, 141, 158, 127, 209, 23, 53, 28, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 191, 141, 158, 127, 209, 139, 54, 28, 58, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 191, 116, 197, 53, 193, 93, 56, 189, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 191, 116, 197, 53, 193, 255, 55, 28, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 190, 116, 197, 53, 193, 186, 56, 28, 58, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 63, 30, 49, 194, 199, 139, 58, 123, 57, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 62, 30, 49, 194, 199, 209, 57, 123, 57, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 62, 30, 49, 194, 199, 46, 58, 217, 56, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 63, 222, 48, 142, 221, 0, 60, 123, 57, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 63, 222, 48, 142, 221, 69, 59, 123, 57, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 62, 222, 48, 142, 221, 162, 59, 217, 56, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 191, 181, 72, 113, 245, 93, 52, 123, 57, 15, 196, 89, 191, 161, 150, 6, 63, 0, 0, 0, 128, 181, 72, 113, 245, 209, 49, 123, 57, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 190, 181, 72, 113, 245, 69, 51, 217, 56, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 191, 69, 123, 111, 205, 69, 55, 123, 57, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 191, 69, 123, 111, 205, 209, 53, 123, 57, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 190, 69, 123, 111, 205, 139, 54, 217, 56, 30, 249, 100, 63, 114, 249, 228, 62, 0, 0, 0, 128, 73, 68, 33, 199, 23, 57, 123, 57, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 190, 73, 68, 33, 199, 93, 56, 123, 57, 58, 150, 6, 63, 79, 196, 89, 63, 0, 0, 0, 128, 73, 68, 33, 199, 186, 56, 217, 56, 58, 150, 6, 63, 79, 196, 89, 63, 0, 0, 0, 128, 41, 102, 53, 193, 186, 56, 217, 56, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 190, 41, 102, 53, 193, 255, 55, 217, 56, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 41, 102, 53, 193, 93, 56, 56, 56, 58, 150, 6, 63, 79, 196, 89, 63, 0, 0, 0, 128, 65, 89, 53, 193, 186, 56, 217, 56, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 190, 65, 89, 53, 193, 93, 56, 123, 57, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 190, 65, 89, 53, 193, 255, 55, 217, 56, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 190, 77, 96, 62, 187, 93, 56, 123, 57, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 191, 77, 96, 62, 187, 69, 55, 123, 57, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 190, 77, 96, 62, 187, 255, 55, 217, 56, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 190, 218, 117, 126, 177, 139, 54, 217, 56, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 190, 218, 117, 126, 177, 23, 53, 217, 56, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 218, 117, 126, 177, 209, 53, 56, 56, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 190, 194, 111, 126, 177, 139, 54, 217, 56, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 191, 194, 111, 126, 177, 209, 53, 123, 57, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 190, 194, 111, 126, 177, 23, 53, 217, 56, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 191, 178, 92, 114, 165, 209, 53, 123, 57, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 191, 178, 92, 114, 165, 93, 52, 123, 57, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 190, 178, 92, 114, 165, 23, 53, 217, 56, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 190, 223, 93, 127, 129, 69, 51, 217, 56, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 62, 223, 93, 127, 129, 93, 48, 217, 56, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 223, 93, 127, 129, 209, 49, 56, 56, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 190, 201, 71, 127, 129, 69, 51, 217, 56, 15, 196, 89, 191, 161, 150, 6, 63, 0, 0, 0, 128, 201, 71, 127, 129, 209, 49, 123, 57, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 62, 201, 71, 127, 129, 93, 48, 217, 56, 15, 196, 89, 191, 161, 150, 6, 63, 0, 0, 0, 128, 202, 51, 143, 141, 209, 49, 123, 57, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 63, 202, 51, 143, 141, 209, 45, 123, 57, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 62, 202, 51, 143, 141, 93, 48, 217, 56, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 62, 247, 88, 130, 209, 162, 59, 217, 56, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 62, 247, 88, 130, 209, 232, 58, 217, 56, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 247, 88, 130, 209, 69, 59, 56, 56, 229, 195, 217, 190, 121, 196, 89, 63, 190, 54, 158, 62, 241, 64, 130, 209, 162, 59, 217, 56, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 63, 241, 64, 130, 209, 69, 59, 123, 57, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 62, 241, 64, 130, 209, 232, 58, 217, 56, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 63, 3, 57, 145, 181, 69, 59, 123, 57, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 63, 3, 57, 145, 181, 139, 58, 123, 57, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 62, 3, 57, 145, 181, 232, 58, 217, 56, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 62, 24, 85, 203, 193, 46, 58, 217, 56, 58, 150, 6, 63, 79, 196, 89, 63, 0, 0, 0, 128, 24, 85, 203, 193, 116, 57, 217, 56, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 24, 85, 203, 193, 209, 57, 56, 56, 192, 90, 38, 62, 124, 196, 89, 63, 97, 255, 255, 62, 37, 61, 203, 193, 46, 58, 217, 56, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 62, 37, 61, 203, 193, 209, 57, 123, 57, 58, 150, 6, 63, 79, 196, 89, 63, 0, 0, 0, 128, 37, 61, 203, 193, 116, 57, 217, 56, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 62, 58, 53, 223, 187, 209, 57, 123, 57, 30, 249, 100, 63, 114, 249, 228, 62, 0, 0, 0, 128, 58, 53, 223, 187, 23, 57, 123, 57, 58, 150, 6, 63, 79, 196, 89, 63, 0, 0, 0, 128, 58, 53, 223, 187, 116, 57, 217, 56, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 190, 99, 53, 33, 199, 186, 56, 28, 58, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 190, 99, 53, 33, 199, 93, 56, 123, 57, 30, 249, 100, 63, 114, 249, 228, 62, 0, 0, 0, 128, 99, 53, 33, 199, 23, 57, 123, 57, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 190, 111, 62, 53, 193, 186, 56, 28, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 191, 111, 62, 53, 193, 255, 55, 28, 58, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 190, 111, 62, 53, 193, 93, 56, 123, 57, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 191, 101, 82, 62, 187, 255, 55, 28, 58, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 191, 101, 82, 62, 187, 69, 55, 123, 57, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 190, 101, 82, 62, 187, 93, 56, 123, 57, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 191, 162, 124, 111, 205, 139, 54, 28, 58, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 191, 162, 124, 111, 205, 209, 53, 123, 57, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 191, 162, 124, 111, 205, 69, 55, 123, 57, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 191, 146, 99, 127, 177, 139, 54, 28, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 191, 146, 99, 127, 177, 23, 53, 28, 58, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 191, 146, 99, 127, 177, 209, 53, 123, 57, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 191, 155, 85, 114, 165, 23, 53, 28, 58, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 191, 155, 85, 114, 165, 93, 52, 123, 57, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 191, 155, 85, 114, 165, 209, 53, 123, 57, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 190, 157, 50, 113, 245, 69, 51, 28, 58, 15, 196, 89, 191, 161, 150, 6, 63, 0, 0, 0, 128, 157, 50, 113, 245, 209, 49, 123, 57, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 191, 157, 50, 113, 245, 93, 52, 123, 57, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 190, 150, 20, 127, 129, 69, 51, 28, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 62, 150, 20, 127, 129, 93, 48, 28, 58, 15, 196, 89, 191, 161, 150, 6, 63, 0, 0, 0, 128, 150, 20, 127, 129, 209, 49, 123, 57, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 62, 180, 27, 143, 141, 93, 48, 28, 58, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 63, 180, 27, 143, 141, 209, 45, 123, 57, 15, 196, 89, 191, 161, 150, 6, 63, 0, 0, 0, 128, 180, 27, 143, 141, 209, 49, 123, 57, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 63, 215, 25, 142, 221, 162, 59, 28, 58, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 63, 215, 25, 142, 221, 69, 59, 123, 57, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 63, 215, 25, 142, 221, 0, 60, 123, 57, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 63, 229, 16, 129, 177, 162, 59, 28, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 63, 229, 16, 129, 177, 232, 58, 28, 58, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 63, 229, 16, 129, 177, 69, 59, 123, 57, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 63, 254, 32, 145, 181, 232, 58, 28, 58, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 63, 254, 32, 145, 181, 139, 58, 123, 57, 190, 150, 134, 190, 190, 150, 6, 63, 99, 27, 79, 63, 254, 32, 145, 181, 69, 59, 123, 57, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 63, 44, 25, 194, 199, 46, 58, 28, 58, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 62, 44, 25, 194, 199, 209, 57, 123, 57, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 63, 44, 25, 194, 199, 139, 58, 123, 57, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 63, 64, 15, 203, 193, 46, 58, 28, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 62, 64, 15, 203, 193, 116, 57, 28, 58, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 62, 64, 15, 203, 193, 209, 57, 123, 57, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 62, 73, 27, 223, 187, 116, 57, 28, 58, 30, 249, 100, 63, 114, 249, 228, 62, 0, 0, 0, 128, 73, 27, 223, 187, 23, 57, 123, 57, 46, 45, 48, 63, 166, 150, 6, 63, 153, 255, 255, 62, 73, 27, 223, 187, 209, 57, 123, 57, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 191, 115, 98, 95, 193, 255, 55, 28, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 191, 115, 98, 95, 193, 139, 54, 28, 58, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 191, 115, 98, 95, 193, 69, 55, 123, 57, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 191, 110, 157, 95, 193, 255, 55, 28, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 191, 110, 157, 95, 193, 69, 55, 189, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 191, 110, 157, 95, 193, 139, 54, 28, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 191, 94, 132, 103, 201, 69, 55, 189, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 191, 94, 132, 103, 201, 209, 53, 189, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 191, 94, 132, 103, 201, 139, 54, 28, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 191, 140, 59, 127, 230, 23, 53, 28, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 190, 140, 59, 127, 230, 69, 51, 28, 58, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 191, 140, 59, 127, 230, 93, 52, 123, 57, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 191, 145, 194, 127, 156, 23, 53, 28, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 190, 145, 194, 127, 156, 93, 52, 189, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 190, 145, 194, 127, 156, 69, 51, 28, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 190, 157, 203, 114, 240, 93, 52, 189, 58, 30, 249, 100, 191, 114, 249, 228, 190, 0, 0, 0, 128, 157, 203, 114, 240, 209, 49, 189, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 190, 157, 203, 114, 240, 69, 51, 28, 58, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 62, 189, 10, 129, 156, 93, 48, 28, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 63, 189, 10, 129, 156, 209, 41, 28, 58, 84, 62, 57, 191, 245, 249, 228, 62, 239, 149, 6, 63, 189, 10, 129, 156, 209, 45, 123, 57, 135, 120, 115, 191, 0, 0, 0, 0, 231, 54, 158, 62, 192, 241, 129, 156, 93, 48, 28, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 62, 192, 241, 129, 156, 209, 45, 189, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 63, 192, 241, 129, 156, 209, 41, 28, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 62, 212, 231, 141, 225, 209, 45, 189, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 63, 212, 231, 141, 225, 0, 0, 189, 58, 30, 121, 22, 191, 0, 0, 0, 0, 184, 27, 79, 63, 212, 231, 141, 225, 209, 41, 28, 58, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 63, 28, 11, 161, 193, 232, 58, 28, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 63, 28, 11, 161, 193, 46, 58, 28, 58, 187, 130, 141, 62, 0, 250, 228, 62, 38, 196, 89, 63, 28, 11, 161, 193, 139, 58, 123, 57, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 127, 63, 27, 240, 161, 193, 232, 58, 28, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 63, 27, 240, 161, 193, 139, 58, 189, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 63, 27, 240, 161, 193, 46, 58, 28, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 63, 41, 231, 185, 199, 139, 58, 189, 58, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 63, 41, 231, 185, 199, 209, 57, 189, 58, 30, 121, 22, 63, 0, 0, 0, 0, 184, 27, 79, 63, 41, 231, 185, 199, 46, 58, 28, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 62, 112, 14, 0, 193, 116, 57, 28, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 190, 112, 14, 0, 193, 186, 56, 28, 58, 30, 249, 100, 63, 114, 249, 228, 62, 0, 0, 0, 128, 112, 14, 0, 193, 23, 57, 123, 57, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 62, 106, 236, 0, 193, 116, 57, 28, 58, 15, 196, 89, 63, 161, 150, 6, 191, 0, 0, 0, 128, 106, 236, 0, 193, 23, 57, 189, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 190, 106, 236, 0, 193, 186, 56, 28, 58, 15, 196, 89, 63, 161, 150, 6, 191, 0, 0, 0, 128, 99, 206, 22, 200, 23, 57, 189, 58, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 191, 99, 206, 22, 200, 93, 56, 189, 58, 135, 120, 115, 63, 0, 0, 0, 0, 231, 54, 158, 190, 99, 206, 22, 200, 186, 56, 28, 58, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 190, 78, 164, 71, 187, 255, 55, 94, 59, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 191, 78, 164, 71, 187, 69, 55, 189, 58, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 191, 78, 164, 71, 187, 93, 56, 189, 58, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 190, 62, 145, 95, 193, 255, 55, 94, 59, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 190, 62, 145, 95, 193, 139, 54, 94, 59, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 191, 62, 145, 95, 193, 69, 55, 189, 58, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 190, 187, 133, 103, 201, 139, 54, 94, 59, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 191, 187, 133, 103, 201, 209, 53, 189, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 191, 187, 133, 103, 201, 69, 55, 189, 58, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 190, 179, 160, 115, 161, 23, 53, 94, 59, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 190, 179, 160, 115, 161, 93, 52, 189, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 191, 179, 160, 115, 161, 209, 53, 189, 58, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 190, 191, 167, 126, 230, 23, 53, 94, 59, 58, 150, 6, 191, 79, 196, 89, 191, 0, 0, 0, 128, 191, 167, 126, 230, 69, 51, 94, 59, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 190, 191, 167, 126, 230, 93, 52, 189, 58, 58, 150, 6, 191, 79, 196, 89, 191, 0, 0, 0, 128, 183, 188, 114, 240, 69, 51, 94, 59, 30, 249, 100, 191, 114, 249, 228, 190, 0, 0, 0, 128, 183, 188, 114, 240, 209, 49, 189, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 190, 183, 188, 114, 240, 93, 52, 189, 58, 58, 150, 6, 191, 79, 196, 89, 191, 0, 0, 0, 128, 198, 203, 142, 146, 93, 48, 94, 59, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 62, 198, 203, 142, 146, 209, 45, 189, 58, 30, 249, 100, 191, 114, 249, 228, 190, 0, 0, 0, 128, 198, 203, 142, 146, 209, 49, 189, 58, 58, 150, 6, 191, 79, 196, 89, 191, 0, 0, 0, 128, 219, 195, 130, 156, 93, 48, 94, 59, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 62, 219, 195, 130, 156, 209, 41, 94, 59, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 62, 219, 195, 130, 156, 209, 45, 189, 58, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 62, 226, 207, 141, 225, 209, 41, 94, 59, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 63, 226, 207, 141, 225, 0, 0, 189, 58, 46, 45, 48, 191, 166, 150, 6, 191, 153, 255, 255, 62, 226, 207, 141, 225, 209, 45, 189, 58, 15, 196, 89, 63, 161, 150, 6, 191, 0, 0, 0, 128, 75, 184, 22, 200, 23, 57, 189, 58, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 190, 75, 184, 22, 200, 186, 56, 94, 59, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 191, 75, 184, 22, 200, 93, 56, 189, 58, 15, 196, 89, 63, 161, 150, 6, 191, 0, 0, 0, 128, 55, 185, 0, 193, 23, 57, 189, 58, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 62, 55, 185, 0, 193, 116, 57, 94, 59, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 190, 55, 185, 0, 193, 186, 56, 94, 59, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 62, 33, 163, 0, 193, 116, 57, 94, 59, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 128, 33, 163, 0, 193, 23, 57, 0, 60, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 190, 33, 163, 0, 193, 186, 56, 94, 59, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 62, 253, 199, 153, 185, 232, 58, 94, 59, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 63, 253, 199, 153, 185, 139, 58, 189, 58, 187, 130, 141, 190, 0, 250, 228, 190, 38, 196, 89, 63, 253, 199, 153, 185, 69, 59, 189, 58, 192, 90, 38, 190, 125, 196, 89, 191, 97, 255, 255, 62, 15, 192, 161, 193, 232, 58, 94, 59, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 62, 15, 192, 161, 193, 46, 58, 94, 59, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 63, 15, 192, 161, 193, 139, 58, 189, 58, 229, 195, 217, 62, 121, 196, 89, 191, 190, 54, 158, 62, 34, 208, 185, 199, 46, 58, 94, 59, 84, 62, 57, 63, 245, 249, 228, 190, 239, 149, 6, 63, 34, 208, 185, 199, 209, 57, 189, 58, 190, 150, 134, 62, 190, 150, 6, 191, 99, 27, 79, 63, 34, 208, 185, 199, 139, 58, 189, 58 ),
@@ -782,90 +706,263 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 240,
-"material": ExtResource( 5 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 240
 }
 
-[sub_resource type="SpatialMaterial" id=38]
-albedo_texture = ExtResource( 3 )
-emission_enabled = true
-emission = Color( 1, 0, 0, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
-emission_texture = ExtResource( 3 )
-uv1_scale = Vector3( 10, 10, 10 )
+[sub_resource type="Shader" id=174]
+code = "
+shader_type canvas_item;
 
-[sub_resource type="Animation" id=40]
+uniform float wave_count : hint_range(1.0, 20.0, 1.0) = 20.0;
+uniform float speed : hint_range(0.0, 10.0, 0.1) = 3.0;
+uniform float height : hint_range(0.0, 0.1, 0.001) = 0.003;
+
+void fragment() {
+	vec2 cPos = -1.0 + 2.0 * UV / (1.0 / TEXTURE_PIXEL_SIZE);
+	float cLength = length(cPos);
+	vec2 uv = FRAGCOORD.xy / (1.0 / SCREEN_PIXEL_SIZE).xy + (cPos/cLength) * cos(cLength * wave_count - TIME * speed) * height;
+    vec3 col = texture(SCREEN_TEXTURE,uv).xyz;
+	COLOR = vec4(col,1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=168]
+shader = SubResource( 174 )
+shader_param/wave_count = 1.0
+shader_param/speed = 7.1
+shader_param/height = 0.024
+
+[sub_resource type="Animation" id=176]
 length = 0.001
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("Icosphere:rotation_degrees:x")
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Icosphere:material_override")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ null ]
 }
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("Icosphere:rotation_degrees:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("../OmniLight:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 360, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.257 ]
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("Icosphere:rotation_degrees:z")
+
+[sub_resource type="Animation" id=175]
+resource_name = "end-scene"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("win-effect:material:shader_param/wave_count")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("win-effect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 5, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CPUParticles:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.1, 13.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath(".:ball_drop_progress")
+tracks/3/path = NodePath("../Icosphere:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
+"times": PoolRealArray( 0.2, 19.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Icosphere:rotation_degrees")
-tracks/4/interp = 1
+tracks/4/path = NodePath("../Icosphere:scale")
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 14.3, 14.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 360, 0 ) ]
+"values": [ Vector3( 1.71375, 1.71375, 1.71375 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Icosphere:material/0:emission")
+tracks/5/path = NodePath("../Beam:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0, 0, 1 ) ]
+"update": 1,
+"values": [ false ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 24.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "unloadBall"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../constant_rumble:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( -10.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../win_effect:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 18.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../win_voice:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 22.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../modern:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 13.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("..")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 24 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "gotoMainMenu"
+} ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Icosphere:material_override")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 3, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ null, ExtResource( 5 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("../Icosphere:mesh:surface_1/material:emission_energy")
+tracks/13/interp = 2
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 3, 11.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.86 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("../bigboom:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 3.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("../OmniLight:light_energy")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 13.8, 14.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.257, 0.0 ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.001
 
 [sub_resource type="Animation" id=41]
 length = 8.0
@@ -888,87 +985,69 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=43]
 length = 0.001
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("Icosphere:rotation_degrees:x")
+tracks/0/type = "value"
+tracks/0/path = NodePath("Icosphere:material/0")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ) ]
 }
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("Icosphere:rotation_degrees:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:light_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 360, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("Icosphere:rotation_degrees:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:ball_drop_progress")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Icosphere:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 360, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Icosphere:material/0:emission")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0, 0, 1 ) ]
+"values": [ Color( 0.105882, 0.890196, 0.94902, 1 ) ]
 }
 
 [sub_resource type="Animation" id=44]
 length = 8.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Icosphere:material/0:emission")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Icosphere:mesh:surface_1/material:emission")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8 ),
+"times": PoolRealArray( -0.0319092, 1, 1.9, 3, 4, 4.9, 6, 7, 8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0.435294, 0, 1 ), Color( 0.945098, 1, 0, 1 ), Color( 0.478431, 1, 0, 1 ), Color( 0, 1, 0.694118, 1 ), Color( 0, 0.647059, 1, 1 ), Color( 0, 0.0627451, 1, 1 ), Color( 0.921569, 0, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0.435294, 0, 1 ), Color( 0.945098, 1, 0, 1 ), Color( 0.478431, 1, 0, 1 ), Color( 0, 1, 0.694118, 1 ), Color( 0, 0.647059, 1, 1 ), Color( 0, 0.0627451, 1, 1 ), Color( 0.921569, 0, 1, 1 ), Color( 1, 0.0481958, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:light_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.9, 3, 3.91125, 4, 5, 6, 6.9, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.94902, 0.105882, 0.105882, 1 ), Color( 1, 0.494118, 0, 1 ), Color( 0.964706, 0.972549, 0.0862745, 1 ), Color( 0.0784314, 0.913725, 0.2, 1 ), Color( 0.105882, 0.890196, 0.94902, 1 ), Color( 0.12549, 0.929412, 0.627451, 1 ), Color( 0, 0.639216, 0.992157, 1 ), Color( 0.0705882, 0.101961, 0.929412, 1 ), Color( 0.882353, 0.0745098, 0.94902, 1 ), Color( 0.94902, 0.105882, 0.105882, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Icosphere:mesh:surface_1/material:emission")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.0319092, 1, 1.9, 3, 4, 4.9, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0.435294, 0, 1 ), Color( 0.945098, 1, 0, 1 ), Color( 0.478431, 1, 0, 1 ), Color( 0, 1, 0.694118, 1 ), Color( 0, 0.647059, 1, 1 ), Color( 0, 0.0627451, 1, 1 ), Color( 0.921569, 0, 1, 1 ), Color( 1, 0.0481958, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -1001,18 +1080,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=34]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:ball_drop_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
 [sub_resource type="DynamicFont" id=35]
 size = 35
@@ -1034,6 +1101,22 @@ params_cull_mode = 2
 albedo_texture = ExtResource( 28 )
 roughness = 0.5
 uv1_scale = Vector3( -10.664, -27.689, 1 )
+
+[sub_resource type="AnimatedTexture" id=1]
+flags = 19
+frames = 2
+fps = 1.0
+frame_0/texture = ExtResource( 51 )
+frame_0/delay_sec = 1.0
+frame_1/texture = ExtResource( 48 )
+frame_1/delay_sec = 1.0
+
+[sub_resource type="SpatialMaterial" id=155]
+resource_name = "tv"
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+albedo_texture = SubResource( 1 )
 
 [sub_resource type="ArrayMesh" id=146]
 resource_name = "city-map-rc4_Plane"
@@ -1092,7 +1175,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 8 ),
+"material": SubResource( 155 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -1135,6 +1218,24 @@ params_cull_mode = 2
 albedo_texture = ExtResource( 22 )
 roughness = 0.5
 uv1_scale = Vector3( -4.708, -6.355, 1 )
+
+[sub_resource type="AnimatedTexture" id=156]
+flags = 19
+frames = 3
+fps = 1.0
+frame_0/texture = ExtResource( 49 )
+frame_0/delay_sec = 5.0
+frame_1/texture = ExtResource( 50 )
+frame_1/delay_sec = 5.0
+frame_2/texture = ExtResource( 52 )
+frame_2/delay_sec = 5.0
+
+[sub_resource type="SpatialMaterial" id=157]
+resource_name = "tv"
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+albedo_texture = SubResource( 156 )
 
 [sub_resource type="ArrayMesh" id=147]
 resource_name = "city-map-rc4_Cylinder"
@@ -1193,7 +1294,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 8 ),
+"material": SubResource( 157 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -2409,8 +2510,10 @@ tracks/0/keys = {
 script = ExtResource( 34 )
 
 [node name="KinematicBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -12.5732, 0.911804, 26.2909 )
 
 [node name="Cameras" type="Spatial" parent="."]
+visible = false
 script = ExtResource( 46 )
 
 [node name="AnimationPlayerCameras" type="AnimationPlayer" parent="Cameras"]
@@ -2451,7 +2554,7 @@ margin_right = 765.0
 margin_bottom = 75.0
 custom_fonts/normal_font = SubResource( 109 )
 visible_characters = 0
-percent_visible = 0.125
+percent_visible = 0.0
 text = "Hello there. My name is Quilliard T. Science. I'm required by my agent to inform you of an issue you will soon be facing...
 "
 fit_content_height = true
@@ -2463,6 +2566,7 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera1/screen_text"]
 position = Vector2( 322, -391 )
 stream = ExtResource( 38 )
+volume_db = 10.0
 
 [node name="Camera2" type="Camera" parent="Cameras"]
 transform = Transform( -0.25, 0.491482, -0.834234, 0.0669873, 0.868308, 0.491482, 0.965926, 0.0669873, -0.25, -51.1152, 52.2949, 20.5575 )
@@ -2534,6 +2638,7 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera2/screen_text"]
 position = Vector2( 325, -394 )
 stream = ExtResource( 38 )
+volume_db = 10.0
 
 [node name="Camera3" type="Camera" parent="Cameras"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.9732, 0.531795, 26.4745 )
@@ -2607,9 +2712,10 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera3/screen_text"]
 position = Vector2( 320, -385 )
 stream = ExtResource( 38 )
+volume_db = 10.0
 
 [node name="Camera4" type="Camera" parent="Cameras"]
-transform = Transform( -0.0941259, 0, 0.99556, 0, 1, 0, -0.99556, 0, -0.0941259, -41.2378, 48.0271, 28.2087 )
+transform = Transform( -0.0941259, 0, 0.99556, 0, 1, 0, -0.99556, 0, -0.0941259, -35.0271, 48.0271, 28.2087 )
 visible = false
 far = 416.2
 
@@ -2624,6 +2730,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/Camera4/screen_text"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -118.0
@@ -2644,6 +2751,8 @@ margin_top = -22.0
 margin_right = 765.0
 margin_bottom = 110.0
 custom_fonts/normal_font = SubResource( 109 )
+visible_characters = 0
+percent_visible = 0.0
 text = "Or you could just sit there and die. I don't really give a ****.
 
 "
@@ -2656,6 +2765,7 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera4/screen_text"]
 position = Vector2( 331, -389 )
 stream = ExtResource( 38 )
+volume_db = 10.0
 
 [node name="Camera5" type="Camera" parent="Cameras"]
 transform = Transform( 0.909243, 0, -0.416265, 0, 1, 0, 0.416265, 0, 0.909243, -25.6951, 0.531795, 35.6809 )
@@ -2673,6 +2783,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/Camera5/screen_text"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -118.0
@@ -2693,6 +2804,8 @@ margin_top = -22.0
 margin_right = 765.0
 margin_bottom = 110.0
 custom_fonts/normal_font = SubResource( 109 )
+visible_characters = 0
+percent_visible = 0.0
 text = "You could also pick up these things to defend yourself if you want.
 
 "
@@ -2705,6 +2818,7 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera5/screen_text"]
 position = Vector2( 346, -401 )
 stream = ExtResource( 38 )
+volume_db = 10.0
 
 [node name="Camera6" type="Camera" parent="Cameras"]
 transform = Transform( 0.00511073, 0.572017, 0.820226, -0.0035641, 0.820242, -0.572006, -0.999981, 0, 0.00623076, -14.6606, 0.531795, 25.8692 )
@@ -2722,6 +2836,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/Camera6/screen_text"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -118.0
@@ -2742,6 +2857,8 @@ margin_top = -22.0
 margin_right = 765.0
 margin_bottom = 110.0
 custom_fonts/normal_font = SubResource( 109 )
+visible_characters = 0
+percent_visible = 0.0
 text = "OK, I'm very busy doing anything other than this. Goodbye.
 
 
@@ -2755,25 +2872,92 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cameras/Camera6/screen_text"]
 position = Vector2( 338, -382 )
 stream = ExtResource( 38 )
+volume_db = 10.0
 
 [node name="Ball" type="KinematicBody" parent="."]
+pause_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1325, -2.05645, 28.3677 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
+ball_drop_progress = 0.0266667
+
+[node name="bigboom" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 58 )
+volume_db = 7.068
+
+[node name="constant_rumble" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 57 )
+
+[node name="modern" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 56 )
+volume_db = -7.068
+
+[node name="win_voice" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 55 )
+
+[node name="win_effect" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 54 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 )
 shape = SubResource( 39 )
 
+[node name="CPUParticles" type="CPUParticles" parent="Ball"]
+transform = Transform( 1.71375, 0, 2.99642e-07, 0, 1.71375, 0, -2.99642e-07, 0, 1.71375, 0, 50, -0.121923 )
+emitting = false
+amount = 1152
+lifetime = 3.18
+one_shot = true
+mesh = SubResource( 172 )
+spread = 180.0
+gravity = Vector3( 0, -12.479, 0 )
+initial_velocity = 10.75
+angular_velocity = 278.71
+angular_velocity_random = 0.27
+angle = 201.3
+angle_random = 0.19
+
+[node name="OmniLight" type="OmniLight" parent="Ball"]
+transform = Transform( -0.434285, 0, -0.900775, 0, 1, 0, 0.900775, 0, -0.434285, 0, 50.5668, 0 )
+light_color = Color( 0.105882, 0.890196, 0.94902, 1 )
+light_energy = 5.257
+light_indirect_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 2
+light_cull_mask = 4294967167
+shadow_enabled = true
+omni_range = 23.575
+omni_attenuation = 1.27456
+omni_shadow_mode = 0
+
 [node name="Icosphere" type="MeshInstance" parent="Ball"]
-transform = Transform( 1.71375, 0, 2.99642e-07, 0, 1.71375, 0, -2.99642e-07, 0, 1.71375, 0, 50, 0 )
-mesh = SubResource( 37 )
+transform = Transform( -1.39616, 0, -0.993817, 0, 1.71375, 0, 0.993817, 0, -1.39616, 0, 50, 0 )
+layers = 128
+mesh = SubResource( 164 )
 skeleton = NodePath("")
-material/0 = SubResource( 38 )
+material/0 = ExtResource( 3 )
+
+[node name="Camera" type="Camera" parent="Ball"]
+transform = Transform( -3.94181e-08, -0.432196, 0.90178, -1.88919e-08, 0.90178, 0.432196, -1, 2.66454e-14, -4.37114e-08, 5.59354, 52.6137, -1.33514e-05 )
+visible = false
+
+[node name="win-effect" type="ColorRect" parent="Ball/Camera"]
+visible = false
+material = SubResource( 168 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 47 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinAnim" type="AnimationPlayer" parent="Ball/Camera"]
+anims/RESET = SubResource( 176 )
+anims/end-scene = SubResource( 175 )
 
 [node name="AnimationPlayerBallSpin" type="AnimationPlayer" parent="Ball"]
-autoplay = "color"
 anims/RESET = SubResource( 40 )
 anims/color = SubResource( 41 )
 anims/spin = SubResource( 42 )
@@ -2786,11 +2970,11 @@ anims/spin = SubResource( 30 )
 
 [node name="Beam" type="MeshInstance" parent="Ball"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0 )
+visible = false
 mesh = SubResource( 31 )
 material/0 = SubResource( 32 )
 
 [node name="AnimationPlayerBallDrop" type="AnimationPlayer" parent="Ball"]
-autoplay = "Drop"
 anims/Drop = SubResource( 33 )
 anims/RESET = SubResource( 34 )
 
@@ -2799,7 +2983,7 @@ visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -93.0
+margin_top = -50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2809,12 +2993,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
+margin_left = -97.0
 margin_top = -22.5
-margin_right = 125.0
+margin_right = 153.0
 margin_bottom = 22.5
 custom_fonts/normal_font = SubResource( 35 )
-text = "- Time"
+text = "Go!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3165,10 +3349,34 @@ visible = false
 [node name="StaminaItem" parent="." instance=ExtResource( 32 )]
 transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -17.5621, -0.126406, 33.5232 )
 
+[node name="StaminaItem2" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -3.50514, -0.126406, 22.9457 )
+
 [node name="timepieces" type="Spatial" parent="."]
 
 [node name="Timepiece" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -29.9772, -0.0832027, 26.5155 )
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -28.0233, -0.0832027, 26.5155 )
+
+[node name="Timepiece8" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -28.3915, -0.0832027, 26.1679 )
+
+[node name="Timepiece9" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.7561, -0.0832027, 26.2086 )
+
+[node name="Timepiece10" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.3135, -0.0832027, 26.2492 )
+
+[node name="Timepiece11" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.8337, -0.0832027, 25.7386 )
+
+[node name="Timepiece12" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.8381, -0.0832027, 26.8809 )
+
+[node name="Timepiece13" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -30.5204, -0.0832027, 26.9184 )
+
+[node name="Timepiece14" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.8673, -0.0832027, 25.9681 )
 
 [node name="Timepiece5" parent="timepieces" instance=ExtResource( 33 )]
 transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -33.8344, -0.0832027, 65.4777 )
@@ -3399,6 +3607,15 @@ shape = SubResource( 124 )
 [node name="barrel" parent="barrels" instance=ExtResource( 40 )]
 transform = Transform( 0.215203, 0, 0.0364723, 0, 0.218272, 0, -0.0364723, 0, 0.215203, -42.2555, 0.047631, 14.4752 )
 
+[node name="barrel10" parent="barrels" instance=ExtResource( 40 )]
+transform = Transform( 0.215203, 0, 0.0364723, 0, 0.218272, 0, -0.0364723, 0, 0.215203, -17.1361, 0.047631, 23.6569 )
+
+[node name="barrel11" parent="barrels" instance=ExtResource( 40 )]
+transform = Transform( 0.215203, 0, 0.0364723, 0, 0.218272, 0, -0.0364723, 0, 0.215203, -10.351, 0.047631, 34.0884 )
+
+[node name="barrel12" parent="barrels" instance=ExtResource( 40 )]
+transform = Transform( 0.215203, 0, 0.0364723, 0, 0.218272, 0, -0.0364723, 0, 0.215203, -8.01546, 0.047631, 28.2968 )
+
 [node name="barrel4" parent="barrels" instance=ExtResource( 40 )]
 transform = Transform( 0.215203, 0, 0.0364723, 0, 0.218272, 0, -0.0364723, 0, 0.215203, -30.8751, 0.047631, 63.8862 )
 
@@ -3426,16 +3643,19 @@ transform = Transform( 0.20891, -5.52868e-09, -0.0632407, 0, -0.218272, 1.90819e
 [node name="bottles" type="Spatial" parent="."]
 
 [node name="bottleblaster" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 24.2119 )
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -34.3557, -0.126406, 24.2119 )
 
 [node name="bottleblaster2" parent="bottles" instance=ExtResource( 35 )]
 transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 34.3399 )
 
+[node name="bottleblaster5" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -17.6529, -0.126406, 24.1132 )
+
 [node name="bottleblaster3" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 23.2929 )
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -35.0223, -0.126406, 14.7098 )
 
 [node name="bottleblaster4" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 22.3444 )
+transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 17.4627 )
 
 [node name="lamps" type="Spatial" parent="."]
 
@@ -4336,6 +4556,8 @@ autoplay = "screen-intro"
 anims/RESET = SubResource( 151 )
 anims/screen-intro = SubResource( 152 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="Cameras/Camera1/screen_text/AnimationPlayer" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera2/screen_text/AnimationPlayer2-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer21_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera2/screen_text/AnimationPlayer2-2" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer22_animation_finished"]
@@ -4345,3 +4567,4 @@ anims/screen-intro = SubResource( 152 )
 [connection signal="animation_finished" from="Cameras/Camera5/screen_text/AnimationPlayer5-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer51_animation_finished"]
 [connection signal="animation_finished" from="Cameras/Camera6/screen_text/AnimationPlayer6-1" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayer61_animation_finished"]
 [connection signal="animation_finished" from="screen transition/AnimationPlayer-Screen-transition" to="Cameras/AnimationPlayerCameras" method="_on_AnimationPlayerScreentransition_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

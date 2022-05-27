@@ -1,4 +1,5 @@
 extends Spatial
+var skipButton = false
 
 func _ready():
 	$Camera1.current = true
@@ -19,10 +20,11 @@ func cameraSelect(var cameraNum):
 			$Camera6.current = true
 		7:
 			var playerCam = get_tree().get_root().get_node("/root/Map/KinematicBody/PlayerCamera")
+			playerCam.visible = true
 			playerCam.current = true
-			
+			$"../".scienceSceneToggle(false)
+			$"../Ball".didScienceFinish()
 			#hide scientist
-			
 			var playerUIstamina = get_tree().get_root().get_node("/root/Map/KinematicBody/GUI/Stamina")
 			var playerUIcrosshair = get_tree().get_root().get_node("/root/Map/KinematicBody/GUI/crosshair")
 			var playerUIball = get_tree().get_root().get_node("/root/Map/Ball/Control")
@@ -31,4 +33,6 @@ func cameraSelect(var cameraNum):
 			playerUIcrosshair.visible = true
 			playerUIball.visible = true
 			playerUIScience.visible = false
-			
+
+	
+		

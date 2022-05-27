@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/modern.wav-537b7e804828b64d41ea96acdc172b6b.sample"
+
+[deps]
+
+source_file="res://assets/sound/game-win-lose/win/modern.wav"
+dest_files=[ "res://.import/modern.wav-537b7e804828b64d41ea96acdc172b6b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

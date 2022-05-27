@@ -32,7 +32,6 @@
 [ext_resource path="res://assets/sound/splash/crack.ogg" type="AudioStream" id=30]
 
 [sub_resource type="Animation" id=2]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("CenterContainer/AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -115,7 +114,7 @@ animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 9 ) ],
 "loop": false,
 "name": "default",
-"speed": 60.0
+"speed": 35.0
 } ]
 
 [node name="SplashScreen" type="Control"]
@@ -149,7 +148,7 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CenterContainer"]
-position = Vector2( 307, 236 )
+position = Vector2( 405, 236 )
 scale = Vector2( 0.221374, 0.221374 )
 frames = SubResource( 1 )
 frame = 1

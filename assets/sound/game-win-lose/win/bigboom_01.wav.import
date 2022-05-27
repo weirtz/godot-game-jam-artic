@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bigboom_01.wav-ba3082de74393e9ffb6e09e7ad3a60ca.sample"
+
+[deps]
+
+source_file="res://assets/sound/game-win-lose/win/bigboom_01.wav"
+dest_files=[ "res://.import/bigboom_01.wav-ba3082de74393e9ffb6e09e7ad3a60ca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

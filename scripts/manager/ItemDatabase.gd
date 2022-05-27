@@ -3,7 +3,16 @@ extends Node
 var items = Array()
 
 func _ready():
-	
+	inventoryInit()
+
+#return item from array
+func getItem(itemName):
+	for i in items:
+		if i.name == itemName:
+			return i
+	return null
+
+func inventoryInit():
 	var directory = Directory.new()
 	directory.open("res://scenes/item_definitions")
 	directory.list_dir_begin()
@@ -17,10 +26,3 @@ func _ready():
 			items.append(load("res://scenes/item_definitions/%s" % filename))
 		
 		filename = directory.get_next()
-
-#return item from array
-func getItem(itemName):
-	for i in items:
-		if i.name == itemName:
-			return i
-	return null

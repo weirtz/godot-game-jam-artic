@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/win-voice.wav-380253d8d49c82794e16854c2ec8035b.sample"
+
+[deps]
+
+source_file="res://assets/sound/game-win-lose/win/win-voice.wav"
+dest_files=[ "res://.import/win-voice.wav-380253d8d49c82794e16854c2ec8035b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

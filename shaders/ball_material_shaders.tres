@@ -1,0 +1,33 @@
+[gd_resource type="SpatialMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://assets/textures/urban/WINDOW.png" type="Texture" id=1]
+[ext_resource path="res://shaders/ball0.gdshader" type="Shader" id=2]
+[ext_resource path="res://shaders/ball1.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=162]
+shader = ExtResource( 3 )
+shader_param/MainColor = Color( 0.0862745, 0.482353, 0.584314, 1 )
+shader_param/BackColor1 = Color( 0.929412, 0.160784, 0.160784, 1 )
+shader_param/BackColor2 = Color( 0.690196, 0.113725, 0.113725, 1 )
+shader_param/Brightness = 1.0
+shader_param/tex_frg_32 = ExtResource( 1 )
+shader_param/tex_frg_3 = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=160]
+next_pass = SubResource( 162 )
+shader = ExtResource( 2 )
+shader_param/shine_color = Color( 1, 1, 1, 1 )
+shader_param/cycle_interval = 5.0
+shader_param/shine_speed = 5.0
+shader_param/shine_width = 91.594
+
+[resource]
+next_pass = SubResource( 160 )
+albedo_texture = ExtResource( 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 2.55
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 1 )
+uv1_scale = Vector3( 10, 10, 10 )
