@@ -77,6 +77,8 @@ func gotoMainMenu():
 	get_tree().call_group("enemy", "queue_free")
 	get_tree().change_scene("res://scenes/menus/end.tscn")
 
+
+
 #change wether the ball can move towards the player or not.
 func setMoveToPlayer(statement: bool):
 	moveToPlayer = statement
