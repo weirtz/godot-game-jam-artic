@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=2]
+[gd_scene load_steps=189 format=2]
 
 [ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/font/pixel.ttf" type="DynamicFontData" id=2]
@@ -69,7 +69,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 7, 21, 35.1, 41.1, 47, 54.1 ),
+"times": PoolRealArray( 0, 7, 21, 35.1, 41.1, 49.1, 54.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1 ],
@@ -95,8 +95,39 @@ tracks/0/keys = {
 } ]
 }
 
+[sub_resource type="DynamicFont" id=109]
+size = 19
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=177]
+default_font = SubResource( 109 )
+
 [sub_resource type="Animation" id=107]
 length = 11.188
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -24.5162, 25.0652, 27.1732 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 30, 90, 1.44596e-06 ) ]
+}
 
 [sub_resource type="Animation" id=108]
 resource_name = "typewriter"
@@ -139,10 +170,30 @@ tracks/2/keys = {
 "method": "_setAnimation"
 } ]
 }
-
-[sub_resource type="DynamicFont" id=109]
-size = 19
-font_data = ExtResource( 2 )
+tracks/3/type = "value"
+tracks/3/path = NodePath("..:translation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -24.5162, 25.0652, 27.1732 ), Vector3( -25.526, 32.475, 27.173 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("..:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 30, 90, 1.44596e-06 ), Vector3( 22.265, 90, 0 ) ]
+}
 
 [sub_resource type="Animation" id=110]
 length = 5.0
@@ -157,6 +208,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -51.1152, 52.2949, 20.5575 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -29.438, -106.682, 4.41146 ) ]
 }
 
 [sub_resource type="Animation" id=111]
@@ -224,6 +299,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:translation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -51.1152, 52.2949, 20.5575 ), Vector3( -48.565, 49.723, 21.855 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("..:rotation_degrees")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -29.438, -106.682, 4.41146 ), Vector3( -27.625, -126.946, 4.411 ) ]
+}
 
 [sub_resource type="Animation" id=112]
 length = 5.0
@@ -238,6 +337,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -48.565, 49.723, 21.855 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -27.625, -126.946, 4.411 ) ]
 }
 
 [sub_resource type="Animation" id=113]
@@ -293,6 +416,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("..:translation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -48.565, 49.723, 21.855 ), Vector3( -46.409, 48.009, 21.855 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -27.625, -126.946, 4.411 ), Vector3( -12.693, -147.904, -1.447 ) ]
+}
 
 [sub_resource type="Animation" id=114]
 length = 7.0
@@ -307,6 +454,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -26.9732, 0.531795, 27.0243 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ) ]
 }
 
 [sub_resource type="Animation" id=115]
@@ -373,6 +544,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:translation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -26.9732, 0.531795, 27.0243 ), Vector3( -28.79, 0.532, 27.024 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("..:rotation_degrees")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( -7.309, 90, 0 ) ]
 }
 
 [sub_resource type="Animation" id=116]
@@ -458,6 +653,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -35.0271, 48.0271, 28.2087 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 95.401, 0 ) ]
+}
 
 [sub_resource type="Animation" id=119]
 resource_name = "typewriter"
@@ -524,6 +743,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:translation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -35.0271, 48.0271, 28.2087 ), Vector3( -38.237, 48.095, 28.209 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("..:rotation_degrees")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 95.401, 0 ), Vector3( 0, 84.743, 0 ) ]
+}
 
 [sub_resource type="Animation" id=120]
 length = 5.0
@@ -538,6 +781,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -23.8151, 0.531795, 31.2378 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 148.423, 0 ) ]
 }
 
 [sub_resource type="Animation" id=121]
@@ -605,6 +872,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:translation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -23.8151, 0.531795, 31.2378 ), Vector3( -22.924, 0.531795, 31.2378 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("..:rotation_degrees")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 148.423, 0 ), Vector3( 0, 140.713, 0 ) ]
+}
 
 [sub_resource type="Animation" id=122]
 length = 5.0
@@ -619,6 +910,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -14.6606, 0.531795, 25.8692 ) ]
 }
 
 [sub_resource type="Animation" id=123]
@@ -685,6 +988,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:translation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -19.692, 11.829, 25.869 ), Vector3( -14.6606, 0.531795, 25.8692 ) ]
 }
 
 [sub_resource type="SphereShape" id=39]
@@ -2514,7 +2829,6 @@ script = ExtResource( 34 )
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -12.5732, 0.911804, 26.2909 )
 
 [node name="Cameras" type="Spatial" parent="."]
-visible = false
 script = ExtResource( 46 )
 
 [node name="AnimationPlayerCameras" type="AnimationPlayer" parent="Cameras"]
@@ -2522,7 +2836,7 @@ anims/begining-cutscene = SubResource( 106 )
 script = ExtResource( 42 )
 
 [node name="Camera1" type="Camera" parent="Cameras"]
-transform = Transform( -3.78552e-08, 0.5, 0.866025, 2.18557e-08, 0.866025, -0.5, -1, 0, -4.37114e-08, -24.5162, 25.0652, 27.1732 )
+transform = Transform( -3.1093e-08, 0.5, 0.866025, 2.18557e-08, 0.866025, -0.5, -1, 3.38108e-09, -3.78552e-08, -24.5162, 25.0652, 27.1732 )
 
 [node name="screen_text" type="Control" parent="Cameras/Camera1"]
 visible = false
@@ -2530,6 +2844,19 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -62.0
 margin_right = 286.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Cameras/Camera1/screen_text"]
+margin_left = 24.0
+margin_top = -394.0
+margin_right = 269.0
+margin_bottom = -373.0
+theme = SubResource( 177 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 109 )
+text = "Press \"SPACE\" to skip."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2554,8 +2881,6 @@ margin_top = -35.0
 margin_right = 765.0
 margin_bottom = 75.0
 custom_fonts/normal_font = SubResource( 109 )
-visible_characters = 0
-percent_visible = 0.0
 text = "Hello there. My name is Quilliard T. Science. I'm required by my agent to inform you of an issue you will soon be facing...
 "
 fit_content_height = true
@@ -2570,7 +2895,7 @@ stream = ExtResource( 38 )
 volume_db = 10.0
 
 [node name="Camera2" type="Camera" parent="Cameras"]
-transform = Transform( -0.25, 0.491482, -0.834234, 0.0669873, 0.868308, 0.491482, 0.965926, 0.0669873, -0.25, -51.1152, 52.2949, 20.5575 )
+transform = Transform( -0.570781, 0.415707, -0.708095, 0.0681428, 0.883377, 0.463683, 0.81827, 0.21641, -0.532542, -48.565, 49.723, 21.855 )
 visible = false
 far = 416.2
 
@@ -2610,8 +2935,6 @@ margin_top = -54.0
 margin_right = 765.0
 margin_bottom = 78.0
 custom_fonts/normal_font = SubResource( 109 )
-visible_characters = 0
-percent_visible = 0.0
 text = "Technically speaking, you've been annulectically contethered into a Quimeticulation Rhymzagrathasphere. But that's too complex for your dullard pinhead brain to understand.
 "
 fit_content_height = true
@@ -2642,7 +2965,7 @@ stream = ExtResource( 38 )
 volume_db = 10.0
 
 [node name="Camera3" type="Camera" parent="Cameras"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.9732, 0.531795, 26.4745 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.9732, 0.531795, 27.0243 )
 visible = false
 far = 416.2
 
@@ -2657,7 +2980,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/Camera3/screen_text"]
-visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -118.0
@@ -2682,8 +3004,6 @@ margin_top = -54.0
 margin_right = 765.0
 margin_bottom = 78.0
 custom_fonts/normal_font = SubResource( 109 )
-visible_characters = 0
-percent_visible = 0.0
 text = "If you collected my Time Gruntivators (patent pending) you could buy yourself some more time to live your miserable life.
 
 "
@@ -2731,7 +3051,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/Camera4/screen_text"]
-visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -118.0
@@ -2752,8 +3071,6 @@ margin_top = -22.0
 margin_right = 765.0
 margin_bottom = 110.0
 custom_fonts/normal_font = SubResource( 109 )
-visible_characters = 0
-percent_visible = 0.0
 text = "Or you could just sit there and die. I don't really give a ****.
 
 "
@@ -2769,7 +3086,7 @@ stream = ExtResource( 38 )
 volume_db = 10.0
 
 [node name="Camera5" type="Camera" parent="Cameras"]
-transform = Transform( 0.909243, 0, -0.416265, 0, 1, 0, 0.416265, 0, 0.909243, -25.6951, 0.531795, 35.6809 )
+transform = Transform( -0.851937, 0, 0.523644, 0, 1, 0, -0.523644, 0, -0.851937, -23.8151, 0.531795, 31.2378 )
 visible = false
 far = 416.2
 
@@ -2784,7 +3101,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/Camera5/screen_text"]
-visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -118.0
@@ -2805,8 +3121,6 @@ margin_top = -22.0
 margin_right = 765.0
 margin_bottom = 110.0
 custom_fonts/normal_font = SubResource( 109 )
-visible_characters = 0
-percent_visible = 0.0
 text = "You could also pick up these things to defend yourself if you want.
 
 "
@@ -2820,6 +3134,10 @@ __meta__ = {
 position = Vector2( 346, -401 )
 stream = ExtResource( 38 )
 volume_db = 10.0
+
+[node name="SpotLight" type="SpotLight" parent="Cameras/Camera5/screen_text"]
+transform = Transform( -0.826826, 0.0112733, 0.562345, 0.120498, 0.980136, 0.157521, -0.549399, 0.198004, -0.811761, -22.924, 0.531795, 31.2378 )
+light_energy = 1.22
 
 [node name="Camera6" type="Camera" parent="Cameras"]
 transform = Transform( 0.00511073, 0.572017, 0.820226, -0.0035641, 0.820242, -0.572006, -0.999981, 0, 0.00623076, -14.6606, 0.531795, 25.8692 )
@@ -2858,8 +3176,6 @@ margin_top = -22.0
 margin_right = 765.0
 margin_bottom = 110.0
 custom_fonts/normal_font = SubResource( 109 )
-visible_characters = 0
-percent_visible = 0.0
 text = "OK, I'm very busy doing anything other than this. Goodbye.
 
 
@@ -3349,52 +3665,58 @@ visible = false
 [node name="StaminaItem" parent="." instance=ExtResource( 32 )]
 transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -17.5621, -0.126406, 33.5232 )
 
+[node name="StaminaItem3" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, 17.3641, -0.126406, 15.8969 )
+
+[node name="StaminaItem5" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, 0.412136, -0.126406, 6.87786 )
+
+[node name="StaminaItem6" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -24.1284, -0.126406, 6.87786 )
+
+[node name="StaminaItem7" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -38.3706, -0.126406, -5.9529 )
+
+[node name="StaminaItem8" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -38.3706, -0.126406, 24.3528 )
+
+[node name="StaminaItem9" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -25.2583, -0.126406, 65.4268 )
+
+[node name="StaminaItem10" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -24.8659, -0.126406, 76.6727 )
+
+[node name="StaminaItem4" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, 8.23887, -0.126406, 35.8111 )
+
 [node name="StaminaItem2" parent="." instance=ExtResource( 32 )]
 transform = Transform( 0.154003, 0, 0, 0, 0.154003, 0, 0, 0, 0.154003, -3.50514, -0.126406, 22.9457 )
 
 [node name="timepieces" type="Spatial" parent="."]
 
-[node name="Timepiece" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -28.0233, -0.0832027, 26.5155 )
-
-[node name="Timepiece8" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -28.3915, -0.0832027, 26.1679 )
-
-[node name="Timepiece9" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.7561, -0.0832027, 26.2086 )
-
-[node name="Timepiece10" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.3135, -0.0832027, 26.2492 )
-
-[node name="Timepiece11" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.8337, -0.0832027, 25.7386 )
-
-[node name="Timepiece12" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.8381, -0.0832027, 26.8809 )
-
 [node name="Timepiece13" parent="timepieces" instance=ExtResource( 33 )]
 transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -30.5204, -0.0832027, 26.9184 )
 
 [node name="Timepiece14" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -27.8673, -0.0832027, 25.9681 )
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -34.5713, -0.0832027, -5.98751 )
 
 [node name="Timepiece5" parent="timepieces" instance=ExtResource( 33 )]
 transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -33.8344, -0.0832027, 65.4777 )
 
-[node name="Timepiece6" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -46.9293, -0.0832027, 5.40381 )
-
 [node name="Timepiece7" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -9.34598, 11.2476, 1.64207 )
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -21.4555, -0.0832027, 86.2468 )
 
 [node name="Timepiece2" parent="timepieces" instance=ExtResource( 33 )]
 transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, 3.72681, -0.126406, 46.3202 )
 
-[node name="Timepiece3" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -17.6196, 11.3166, 37.0985 )
-
 [node name="Timepiece4" parent="timepieces" instance=ExtResource( 33 )]
-transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, 23.6321, 0.26691, 27.4656 )
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, 5.03811, 0.26691, 4.55656 )
+
+[node name="Timepiece8" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, -0.329079, 0.26691, 30.5038 )
+
+[node name="Timepiece6" parent="timepieces" instance=ExtResource( 33 )]
+transform = Transform( 0.48024, 0, 0, 0, 0.48024, 0, 0, 0, 0.48024, 23.6321, 0.26691, 26.34 )
 
 [node name="fences" type="Spatial" parent="."]
 
@@ -3454,6 +3776,12 @@ transform = Transform( 1.09359, -1.21879e-09, -1.55396e-11, 1.21879e-09, 1.09323
 
 [node name="fence25" parent="fences" instance=ExtResource( 39 )]
 transform = Transform( -1.09359, 3.65638e-09, -9.5558e-08, 1.21879e-09, 1.09323, 0.0278827, 9.56202e-08, 0.0278827, -1.09323, -43.1956, -0.233444, 36.5227 )
+
+[node name="fence28" parent="fences" instance=ExtResource( 39 )]
+transform = Transform( -1.09359, 3.65638e-09, -9.5558e-08, 1.21879e-09, 1.09323, 0.0278827, 9.56202e-08, 0.0278827, -1.09323, -37.1182, -0.233444, 64.4668 )
+
+[node name="fence29" parent="fences" instance=ExtResource( 39 )]
+transform = Transform( -1.09359, 3.65638e-09, -9.5558e-08, 1.21879e-09, 1.09323, 0.0278827, 9.56202e-08, 0.0278827, -1.09323, -37.1182, -0.233444, 66.7421 )
 
 [node name="fence26" parent="fences" instance=ExtResource( 39 )]
 transform = Transform( -1.09359, 3.65638e-09, -9.5558e-08, 1.21879e-09, 1.09323, 0.0278827, 9.56202e-08, 0.0278827, -1.09323, -43.1956, -0.233444, 34.1877 )
@@ -3642,20 +3970,26 @@ transform = Transform( 0.20891, -5.52868e-09, -0.0632407, 0, -0.218272, 1.90819e
 
 [node name="bottles" type="Spatial" parent="."]
 
-[node name="bottleblaster" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -34.3557, -0.126406, 24.2119 )
-
 [node name="bottleblaster2" parent="bottles" instance=ExtResource( 35 )]
 transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -24.4911, -0.126406, 32.7918 )
 
-[node name="bottleblaster5" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -17.6529, -0.126406, 24.1132 )
+[node name="bottleblaster6" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0785978, 0, -0.0389462, 0, 0.0877178, 0, 0.0389462, 0, 0.0785978, -23.9419, -0.126406, 58.8828 )
 
-[node name="bottleblaster3" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -35.0223, -0.126406, 14.7098 )
+[node name="bottleblaster7" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( -0.00987061, 0, -0.0871607, 0, 0.0877178, 0, 0.0871607, 0, -0.00987061, -35.6359, -0.126406, 19.055 )
 
-[node name="bottleblaster4" parent="bottles" instance=ExtResource( 35 )]
-transform = Transform( 0.0877178, 0, 0, 0, 0.0877178, 0, 0, 0, 0.0877178, -25.166, -0.126406, 17.4627 )
+[node name="bottleblaster8" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( -0.0654211, 0, -0.0584337, 0, 0.0877178, 0, 0.0584337, 0, -0.0654211, -16.9245, -0.126406, 19.2352 )
+
+[node name="bottleblaster9" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( -0.0170648, 0, -0.0860419, 0, 0.0877178, 0, 0.0860419, 0, -0.0170648, -24.0987, -0.126406, -8.39173 )
+
+[node name="bottleblaster10" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( 0.0649838, 0, 0.0589196, 0, 0.0877178, 0, -0.0589196, 0, 0.0649838, 11.1761, -0.126406, 29.3641 )
+
+[node name="bottleblaster11" parent="bottles" instance=ExtResource( 35 )]
+transform = Transform( -0.0804504, 0, 0.0349591, 0, 0.0877178, 0, -0.0349591, 0, -0.0804504, 7.76467, -0.126406, 10.5349 )
 
 [node name="lamps" type="Spatial" parent="."]
 
@@ -3744,6 +4078,7 @@ spot_angle = 34.04
 transform = Transform( 8.84371e-08, 0, -0.674402, 0, 0.674402, 0, 0.674402, 0, 8.84371e-08, -8.54955, -0.126405, 28.4756 )
 
 [node name="Cylinder" type="MeshInstance" parent="lamps/lamppost13"]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 0, 0 )
 mesh = SubResource( 125 )
 material/0 = null
 material/1 = null
@@ -4538,6 +4873,24 @@ transform = Transform( -0.674402, 0, -5.89581e-08, 0, 0.674402, 0, 5.89581e-08, 
 
 [node name="cart2" parent="carts" instance=ExtResource( 53 )]
 transform = Transform( -0.106066, 0, -0.106066, 0, 0.15, 0, 0.106066, 0, -0.106066, -24.9395, -0.0231959, 33.6062 )
+
+[node name="cart3" parent="carts" instance=ExtResource( 53 )]
+transform = Transform( -0.142131, 0, -0.0479456, 0, 0.15, 0, 0.0479456, 0, -0.142131, -24.7052, -0.0231959, 59.4135 )
+
+[node name="cart4" parent="carts" instance=ExtResource( 53 )]
+transform = Transform( -0.0934571, 0, 0.117328, 0, 0.15, 0, -0.117328, 0, -0.0934571, -36.3946, -0.0231959, 18.5179 )
+
+[node name="cart5" parent="carts" instance=ExtResource( 53 )]
+transform = Transform( 0.00844903, 0, 0.149762, 0, 0.15, 0, -0.149762, 0, 0.00844903, -17.1326, -0.0231959, 18.3291 )
+
+[node name="cart6" parent="carts" instance=ExtResource( 53 )]
+transform = Transform( -0.0834052, 0, 0.124674, 0, 0.15, 0, -0.124674, 0, -0.0834052, -24.8103, -0.0231959, -8.99 )
+
+[node name="cart7" parent="carts" instance=ExtResource( 53 )]
+transform = Transform( -0.00733269, 0, -0.149821, 0, 0.15, 0, 0.149821, 0, -0.00733269, 11.391, -0.0231959, 30.2686 )
+
+[node name="cart8" parent="carts" instance=ExtResource( 53 )]
+transform = Transform( 0.13955, 0, 0.0550068, 0, 0.15, 0, -0.0550068, 0, 0.13955, 8.50049, -0.0231959, 9.96666 )
 
 [node name="screen transition" type="Control" parent="."]
 anchor_right = 1.0

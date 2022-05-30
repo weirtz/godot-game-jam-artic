@@ -307,10 +307,9 @@ __meta__ = {
 }
 
 [node name="time-pieces-container" type="Panel" parent="GUI"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -137.0
+margin_left = -164.0
 margin_right = 1.0
 margin_bottom = 19.0
 __meta__ = {
@@ -320,20 +319,19 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="GUI/time-pieces-container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 98.0
-margin_right = 8.0
+margin_left = 130.0
 theme = SubResource( 60 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="time-pieces" type="RichTextLabel" parent="GUI/time-pieces-container"]
-margin_left = 8.0
+margin_left = 4.0
 margin_top = 2.0
-margin_right = 91.0
+margin_right = 135.0
 margin_bottom = 17.0
 custom_fonts/normal_font = SubResource( 45 )
-text = "Time Pieces:"
+text = "Time Gruntivators:"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
